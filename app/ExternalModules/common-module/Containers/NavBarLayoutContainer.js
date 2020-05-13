@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import NavBarLayoutComponent from "../LayoutComponents/nav-bar/layout/NavBarLayoutComponent";
+import NavBarLayoutComponent from "../Components/layout/nav-bar/NavBarLayoutComponent";
 
 
 const getToolBarContent = (state) => state.toolBarReducer.toolBarContent;

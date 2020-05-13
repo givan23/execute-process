@@ -1,6 +1,6 @@
 import React from "react";
 import parser from "react-html-parser";
-import navBar from "../snippet/nav-bar.html";
+import navBar from "../../snippet/nav-bar/nav-bar.html";
 
 class NavBarLayoutComponent extends React.Component {
 

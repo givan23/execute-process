@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import QuoteLayoutComponent from "../../LayoutComponents/central/layout/quote/QuoteLayoutComponent";
+import QuoteLayoutComponent from "../Components/layout/quote/QuoteLayoutComponent";
 
 
 const mapStateToProps = createSelector (

@@ -4,8 +4,8 @@ import {EditorialContextManagers} from "../Core/Logic/init/EditorialContextManag
 import {ToolBarManagers} from "../Core/Logic/tool-bar/ToolBarManagers";
 import {CentralContentManagers} from "../Core/Logic/central/CentralContentManagers";
 import {FooterManagers} from "../Core/Logic/footer/FooterManagers";
-import {SidebarManagers} from "../ExecuteProcess/common-module/devtool-module/Core/Logic/SidebarManagers";
-import {ManagementBarManagers} from "../ExecuteProcess/common-module/devtool-module/Core/Logic/ManagementBarManagers";
+import {SidebarManagers} from "../ExternalModules/devtool-module/Core/Logic/SidebarManagers";
+import {ManagementBarManagers} from "../ExternalModules/devtool-module/Core/Logic/ManagementBarManagers";
 
 
 const managers = [

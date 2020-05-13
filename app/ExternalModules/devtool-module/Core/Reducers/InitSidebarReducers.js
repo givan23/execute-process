@@ -1,4 +1,4 @@
-import createReducer from "../../../../../Utils/CreateReducerUtils"
+import createReducer from "../../../../Utils/CreateReducerUtils"
 
 
 const storedChannelData = (draft, action) => {

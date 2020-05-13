@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import FooterLayoutComponent from "../LayoutComponents/footer/layout/FooterLayoutComponent";
+import FooterLayoutComponent from "../Components/layout/footer/FooterLayoutComponent";
 
 const mapStateToProps = createSelector (
     [],

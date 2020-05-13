@@ -4,16 +4,16 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import {store, history } from '../Store/CreateStore';
 
-import HeaderLayoutContainer from "./common-module/LayoutContainers/HeaderLayoutContainer";
-import NavBarLayoutContainer from "./common-module/LayoutContainers/NavBarLayoutContainer";
-import RoutingStaticCentralContent from "./LayoutComponents/RoutingCentralContentUi";
-import FooterLayoutContainer from "./common-module/LayoutContainers/FooterLayoutContainer";
+import HeaderLayoutContainer from "../ExternalModules/common-module/Containers/HeaderLayoutContainer";
+import NavBarLayoutContainer from "../ExternalModules/common-module/Containers/NavBarLayoutContainer";
+import RoutingStaticCentralContent from "./Rooting/RoutingCentralContentUi";
+import FooterLayoutContainer from "../ExternalModules/common-module/Containers/FooterLayoutContainer";
 
 import {
     CENTRAL_CONTENT_SELECTOR, DEVTOOL_SELECTOR,
     FOOTER_SELECTOR,
     HEADER_SELECTOR, TOOL_BAR_SELECTOR
-} from "./common-module/Constants/SelectorConstants";
+} from "../ExternalModules/common-module/Constants/SelectorConstants";
 import {
     BOX_MESSAGE_GREEN,
     BOX_MESSAGE_RED,
@@ -23,8 +23,8 @@ import {
     HEADER_SELECTOR_NOT_LOADED,
     NAVBAR_SELECTOR_LOADED,
     NAVBAR_SELECTOR_NOT_LOADED
-} from "./common-module/Constants/ConsoleMessage";
-import DevtoolLayoutContainer from "./common-module/devtool-module/LayoutContainers/DevtoolLayoutContainer";
+} from "../ExternalModules/common-module/Constants/ConsoleMessage";
+import DevtoolLayoutContainer from "../ExternalModules/devtool-module/LayoutContainers/DevtoolLayoutContainer";
 
 
 

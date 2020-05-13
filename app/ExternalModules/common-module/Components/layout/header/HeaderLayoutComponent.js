@@ -1,6 +1,6 @@
 import React from "react";
 import parser from "react-html-parser";
-import header from "../snippet/header.html";
+import header from "../../snippet/header/header.html";
 
 class HeaderLayoutComponent extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from "react";
 import parser from "react-html-parser";
-import footer from "../snippet/footer.html";
+import footer from "../../snippet/footer/footer.html";
 
 class FooterLayoutComponent extends React.Component {
 

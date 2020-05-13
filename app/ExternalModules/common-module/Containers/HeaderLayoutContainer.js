@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import HeaderLayoutComponent from "../LayoutComponents/header/layout/HeaderLayoutComponent";
+import HeaderLayoutComponent from "../Components/layout/header/HeaderLayoutComponent";
 
 
 const getHeaderContent = (state) => state.headerReducer.headerContent;
