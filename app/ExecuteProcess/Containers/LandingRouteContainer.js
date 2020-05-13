@@ -10,14 +10,11 @@ const mapStateToProps = createSelector(
     [getSubItemData],
     (subItemData) => {
 
-        const {subItemList = []} = subItemData;
-
-        const [landingCentralStatus = {}, sportListStatus = {}] = subItemList;
-
+        const [landingCentral = {}, sportList = {}] = subItemData.subItemList || [];
 
         return {
-            landingCentralStatus,
-            sportListStatus
+            landingCentral,
+            sportList
         };
     });
 

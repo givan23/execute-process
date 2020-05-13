@@ -11,16 +11,11 @@ class LandingLayoutComponent extends React.Component {
     }
 
     render() {
-
-const {landingCentralStatus , sportListStatus} = this.props;
-
-
         return (
 
             <div>
-                { isShow(landingCentralStatus) ? parser(landingCentral) : null }
-                { isShow(sportListStatus) ? parser(sportList) : null }
-
+                {isShow(this.props.landingCentral) ? parser(landingCentral) : null}
+                {isShow(this.props.sportList) ? parser(sportList) : null}
             </div>
 
         );
