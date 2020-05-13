@@ -1,0 +1,2 @@
+export const INIT_TOOL_BAR = "INIT_TOOL_BAR";
+export const STORED_TOOL_BAR_DETAIL = "STORED_TOOL_BAR_DETAIL";

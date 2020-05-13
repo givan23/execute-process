@@ -1,0 +1,13 @@
+@iterations: 16;
+
+.grid-loop (@i) when (@i > 0) {
+  @calolo: 100 / @i;
+
+  .col-@{i} {
+    width: ~"@{calolo}%";
+  }
+
+  .grid-loop(@i - 1);
+}
+
+.grid-loop (@iterations);

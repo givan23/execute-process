@@ -1,0 +1,99 @@
+// SIDEBAR
+.devtool {
+  &-sidebar {
+    display: flex;
+    height: 100%;
+    width: 330px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #25282f;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+}
+
+// SIDEBAR TOOL BAR
+.sidebar-tool-bar {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  width: 55px;
+  height: 100%;
+  background-color: #282c34;
+  border-right: #242222 1.5px solid;
+  border-left: #242222 1.5px solid;
+
+  .btn-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #242222;
+    color: #25282f;
+    font-size: 20px;
+    font-family: "Arial Black", "Gadget", "sans-serif";
+    cursor: pointer;
+  }
+
+  .btn-close:hover {
+    background-color: #25282f;
+    color: #242222;
+    border: #242222 1.5px solid;
+  }
+}
+
+// MODIFIER CLASS
+.close {
+  width: 55px;
+}
+
+// SIDEBAR ITEM BAR
+.sidebar-item-bar {
+  width: 0;
+  font-size: 14px;
+  color: white;
+
+  .item-bar-title,
+  .btn-item,
+  .btn-sub-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 273px;
+    border-bottom: #242222 1.5px solid;
+
+  }
+
+  .item-bar-title {
+    height: 56px;
+  }
+
+  .item-bar-title .title {
+      font-size: 18px;
+    }
+
+  .btn-item,
+  .btn-sub-item {
+    height: 50px;
+    color: darkgrey;
+    border-bottom: #242222 1px solid;
+    background-color: #282c34;
+  }
+
+  .btn-sub-item {
+    background-color: #333944;
+  }
+
+  .btn-item:hover {
+    color: white;
+    background-color: #242222;
+  }
+
+  .btn-sub-item:hover {
+    color: white;
+    background-color: #4b5361;
+  }
+}

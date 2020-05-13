@@ -1,0 +1,2 @@
+export const INIT_HEADER = "INIT_HEADER";
+export const STORED_HEADER_DETAIL = "STORED_HEADER_DETAIL";
