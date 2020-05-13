@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import SideBarComponent from "../LayoutComponents/layout/SideBarComponent";
+import SideBarComponent from "../Components/layout/SideBarComponent";
 import {initSidebarDevtool, toggleItem, toggleSubItem} from "../Core/Actions/SidebarActions";
 
 
@@ -16,7 +16,7 @@ class SidebarContent extends React.Component {
     }
 }
 
-const getChannelData = (state) => state.initSidebarReducers.channelData;
+const getChannelData = (state) => state.devtoolSidebarReducers.channelData;
 
 const mapStateToProps = createSelector(
     [getChannelData],
@@ -33,11 +33,11 @@ const mapDispatchToProps = dispatch => {
         initSidebarDevtool: () => {
             dispatch(initSidebarDevtool())
         },
-        toggleItem: (url) => {
-            dispatch(toggleItem(url))
+        toggleItem: (route) => {
+            dispatch(toggleItem(route))
         },
-        toggleSubItem: (url, code) => {
-            dispatch(toggleSubItem(url, code))
+        toggleSubItem: (route, code) => {
+            dispatch(toggleSubItem(route, code))
         }
     }
 };

@@ -4,15 +4,16 @@ import {createSelector} from "reselect";
 import QuoteLayoutComponent from "../Components/layout/quote/QuoteLayoutComponent";
 
 
-const mapStateToProps = createSelector (
-    [],
-    () => {
+const getSubItemData = (state) => state.devtoolLayoutReducers.subItemData;
+
+const mapStateToProps = createSelector(
+    [getSubItemData],
+    (subItemData) => {
 
         return {
-
+            snippetData: subItemData
         };
-    }
-);
+    });
 
 const mapDispatchToProps = (dispatch) => {
     return {};

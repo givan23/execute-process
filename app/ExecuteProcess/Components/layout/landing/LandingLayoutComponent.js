@@ -2,22 +2,24 @@ import React from "react";
 import parser from "react-html-parser";
 import {landingCentral} from "../../snippet/landing/landing-central.js";
 import sportList from "../../snippet/sport-list/sport-list.html";
+import {isShow} from "../../../Utils/layoutUtils";
 
 
 class LandingLayoutComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            colore: props.colore
-        };
     }
 
     render() {
+
+const {landingCentralStatus , sportListStatus} = this.props;
+
+
         return (
 
             <div>
-                { parser(landingCentral) }
-                { parser(sportList) }
+                { isShow(landingCentralStatus) ? parser(landingCentral) : null }
+                { isShow(sportListStatus) ? parser(sportList) : null }
 
             </div>
 

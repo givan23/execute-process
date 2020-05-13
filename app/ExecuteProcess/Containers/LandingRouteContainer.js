@@ -3,14 +3,21 @@ import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import LandingLayoutComponent from "../Components/layout/landing/LandingLayoutComponent";
 
-const getChannelData = (state) => state.initSidebarReducers.channelData;
+
+const getSubItemData = (state) => state.devtoolLayoutReducers.subItemData;
 
 const mapStateToProps = createSelector(
-    [getChannelData],
-    (channelData) => {
-console.log(channelData);
+    [getSubItemData],
+    (subItemData) => {
+
+        const {subItemList = []} = subItemData;
+
+        const [landingCentralStatus = {}, sportListStatus = {}] = subItemList;
+
+
         return {
-            channelData
+            landingCentralStatus,
+            sportListStatus
         };
     });
 
@@ -19,3 +26,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingLayoutComponent);
+

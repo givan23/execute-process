@@ -1,7 +1,7 @@
 import {
     INIT_SIDEBAR_DEVTOOL,
     STORED_CHANNEL_DATA,
-    STORED_NEW_CHANNEL_DATA,
+    STORED_NEW_CHANNEL_DATA, STORED_SUB_ITEM_FILTER_DATA,
     TOGGLE_ITEM,
     TOGGLE_SUB_ITEM
 } from "../Constants/SidebarConstants";
@@ -20,26 +20,36 @@ export const storedChannelData = (result) => {
     }
 };
 
+
+//MANAGEMENT TOOLS BAR
+
+
+
+//MANAGEMENT ITEM BAR
+export const toggleItem = (route) => {
+    return {
+        type: TOGGLE_ITEM,
+        route
+    }
+};
+
+export const toggleSubItem = (route, code) => {
+    return {
+        type: TOGGLE_SUB_ITEM,
+        route,
+        code
+    }
+};
+
 export const storedNewChannelData = (newResult) => {
     return {
         type: STORED_NEW_CHANNEL_DATA,
         newResult
     }
 };
-
-//MANAGEMENT BARS
-export const toggleItem = (url) => {
-
+export const storedSubItemFilterData = (filterResult) => {
     return {
-        type: TOGGLE_ITEM,
-        url
-    }
-};
-
-export const toggleSubItem = (url,code) => {
-    return {
-        type: TOGGLE_SUB_ITEM,
-        url,
-        code
+        type: STORED_SUB_ITEM_FILTER_DATA,
+        filterResult
     }
 };

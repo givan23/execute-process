@@ -24,7 +24,7 @@ import {
     NAVBAR_SELECTOR_LOADED,
     NAVBAR_SELECTOR_NOT_LOADED
 } from "../ExternalModules/common-module/Constants/ConsoleMessage";
-import DevtoolLayoutContainer from "../ExternalModules/devtool-module/LayoutContainers/DevtoolLayoutContainer";
+import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
 
 
 
@@ -73,7 +73,7 @@ export const renderStaticNavBar = store => {
 
 export const renderStaticCentralContent = (store, history) => {
     const interval = setInterval(() => {
-console.log("history: ", history);
+
         const centralContentWrapper = document.getElementById(CENTRAL_CONTENT_SELECTOR);
 
         if (centralContentWrapper) {

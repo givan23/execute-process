@@ -17,19 +17,19 @@ const ItemListComponent = ({channelData, toggleItem, toggleSubItem}) => {
     return channelData.map((item, index) => {
 
         return <div key={index}>
-            <div className="btn-item" onClick={ () => toggleItem(item.url)}>{item.url}</div>
-            {item.selected ? <SubItemListComponent url={item.url} subItemList={item.subItemList} toggleSubItem={toggleSubItem}/> : ""}
+            <div className="btn-item" onClick={() => toggleItem(item.route)}>{item.routeTitle}</div>
+            {item.selected ? <SubItemListComponent route={item.route} subItemList={item.subItemList} toggleSubItem={toggleSubItem}/> : ""}
         </div>
     });
 
 };
 
-const SubItemListComponent = ({url, subItemList, toggleSubItem}) => {
+const SubItemListComponent = ({route, subItemList, toggleSubItem}) => {
 
 
     return subItemList.map((subItem, index) => {
 
         return <div key={index} className="btn-sub-item"
-                    onClick={() => toggleSubItem(url, subItem.code)}>{subItem.subItemTitle}</div>
+                    onClick={() => toggleSubItem(route, subItem.code)}>{subItem.subItemTitle}</div>
     });
 };

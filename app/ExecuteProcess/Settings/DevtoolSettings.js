@@ -5,35 +5,42 @@ export const DevtoolSettings = {
             channel: "URL",
             list: [
                 {
-                    url: "Landing",
+                    routeTitle: "Landing",
+                    route: "/",
                     selected: false,
                     subItemList: [
                         {
                             code: 1,
-                            subItemTitle: "item1",
+                            subItemTitle: "landingCentral",
+                            viewport: "desktop",
                             status: true,
-                            viewport: 760
+
                         },
                         {
                             code: 2,
-                            subItemTitle: "item2",
+                            subItemTitle: "sportList",
+                            viewport: "desktop",
                             status: true
+
                         },
                     ]
                 },
                 {
-                    url: "Quote",
+                    routeTitle: "Quote",
+                    route: "/quote",
                     selected: false,
                     subItemList: [
                         {
                             code: 1,
                             subItemTitle: "item1",
-                            status: false
+                            viewport: "desktop",
+                            status: true
                         },
                         {
                             code: 2,
                             subItemTitle: "item2",
-                            status: false
+                            viewport: "desktop",
+                            status: true
                         },
                     ]
                 }
