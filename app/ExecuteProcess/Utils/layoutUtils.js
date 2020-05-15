@@ -1,4 +1,7 @@
 export let isShow = (obj) => {
-    let _obj = obj instanceof Object ? obj : {status: true};
-    return _obj.status === undefined ? true : _obj.status;
+    let _obj = obj instanceof Object ? obj : {status: false};
+    if (_obj.status === undefined) return true;
+    else if (_obj.status)  return _obj.status;
+
+
 };

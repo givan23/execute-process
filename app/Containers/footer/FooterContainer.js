@@ -7,10 +7,10 @@ import {showFooterToggle} from "../../Core/Actions/FooterActions";
 
 const getFooterContent = (state) => state.footerReducer.footerContent;
 const getHideFooter = (state) => state.footerReducer.hideFooter;
-const getScreenSize = (state) => state.centralContentReducers.screenSize;
+
 
 const mapStateToProps = createSelector (
-    [getFooterContent, getHideFooter, getScreenSize],
+    [getFooterContent, getHideFooter],
     (footerContent, hideFooter, screenSize) => {
 
         const {socialList = [], sectionList = []} = footerContent;

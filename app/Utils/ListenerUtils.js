@@ -1,4 +1,4 @@
-import {onResizeEvent} from "../Core/Actions/ResizeScreenActions";
+import {onResizeEvent} from "../ExecuteProcess/Core/Actions/ResizeScreenActions";
 
 const onResizeWindow = (store) => {
     window.addEventListener('resize', () =>

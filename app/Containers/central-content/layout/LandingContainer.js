@@ -5,11 +5,11 @@ import {LandingComponent} from "../../../Components/centralContent/layout/Landin
 
 
 const getCentralContent = (state) => state.centralContentReducers.centralContent;
-const getScreenSize = (state) => state.centralContentReducers.screenSize;
+
 
 
 const mapStateToProps = createSelector (
-    [getCentralContent, getScreenSize],
+    [getCentralContent],
     (centralContent, screenSize) => {
 
 

@@ -25,9 +25,9 @@ export const DevtoolSettings = {
                         },
                         {
                             code: 3,
-                            subItemTitle: "sportList",
+                            subItemTitle: "sportListMobile",
                             viewport: "mobile",
-                            status: true
+                            status: false
 
                         },
                     ]
@@ -40,13 +40,13 @@ export const DevtoolSettings = {
                         {
                             code: 1,
                             subItemTitle: "item1",
-                            viewport1: "responsive",
+                            viewport: "desktop",
                             status: true
                         },
                         {
                             code: 2,
                             subItemTitle: "item2",
-                            viewport1: "responsive",
+                            viewport: "responsive",
                             status: true
                         },
                     ]

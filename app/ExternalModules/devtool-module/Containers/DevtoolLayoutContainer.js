@@ -17,13 +17,16 @@ class SidebarContent extends React.Component {
 }
 
 const getChannelData = (state) => state.devtoolSidebarReducers.channelData;
+const getScreenSize = (state) => state.devtoolResizeReducers.screenSize;
 
 const mapStateToProps = createSelector(
-    [getChannelData],
-    (channelData) => {
+    [getChannelData,getScreenSize],
+    (channelData,screenSize) => {
 
         return {
+            screenSize,
             channelData
+
         };
     });
 

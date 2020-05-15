@@ -1,7 +1,6 @@
 import {createLogic} from "redux-logic";
 import {STATIC_BASE_URL, TOGGLE_ITEM, TOGGLE_SUB_ITEM} from "../Constants/SidebarConstants";
 import {
-    filterSubItemForViewport,
     filterSubItemList,
     goToPath,
     updateStatusDropDown,
@@ -30,21 +29,20 @@ const managementBarManager = createLogic({
                 let newChannelData = updateStatusDropDown(channelData, route);
                 dispatch(storedNewChannelData(newChannelData || []));
 
-
             }
+
             if (channelData && action.type === TOGGLE_SUB_ITEM) {
 
                 const {route = "/", code = 2} = action;
-                let viewport = "desktop";
 
                 //go devtool
-                let updatedSubItemStatus = updateStatusSubItem(channelData, route, code, viewport);
-                let filterByViewport = filterSubItemForViewport(updatedSubItemStatus, route, viewport);
-                dispatch(storedNewChannelData(filterByViewport || []));
+                let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
+                dispatch(storedNewChannelData(updatedSubItemStatus || []));
 
 
                 //go layout
-                let filteredDataByChannel = filterSubItemList(filterByViewport, route);
+                let filteredDataByChannel = filterSubItemList(updatedSubItemStatus, route);
+                console.log(filteredDataByChannel);
                 dispatch(storedSubItemFilterData(filteredDataByChannel || []));
 
             }

@@ -11,8 +11,6 @@ class SideBarComponent extends React.Component {
         };
     }
 
-
-
     render() {
 
         const toggleClose = () => {
@@ -29,6 +27,7 @@ class SideBarComponent extends React.Component {
                     <ToolBarComponent isClose={this.state.isClose} toggleClose={toggleClose}/>
 
                     <ItemBarComponent channelData={this.props.channelData}
+                                      screenSize={this.props.screenSize}
                                       toggleItem={this.props.toggleItem}
                                       toggleSubItem={this.props.toggleSubItem}
                     />

@@ -1,4 +1,4 @@
-import { ON_RESIZE_EVENT } from "../Costants/ResizeConstants";
+import { ON_RESIZE_EVENT } from "../../../Core/Costants/ResizeConstants";
 
 export const onResizeEvent = (width) => {
 

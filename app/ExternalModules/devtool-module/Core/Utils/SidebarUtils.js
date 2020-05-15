@@ -19,7 +19,7 @@ export const updateStatusDropDown = (channelData, route) => {
 };
 
 //filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list.
-export const updateStatusSubItem = (channelData, route, code, viewport) => {
+export const updateStatusSubItem = (channelData, route, code) => {
 
     return channelData.map(item => {
             return item.route === route ?
@@ -35,22 +35,6 @@ export const updateStatusSubItem = (channelData, route, code, viewport) => {
 };
 
 
-//filter for 'viewport'. Return an item with an update sub-item list.
-export const filterSubItemForViewport = (data, route, viewport) => {
-
-    return data.map(item => {
-        if (item.route === route) {
-            return {
-                ...item,
-                subItemList: item.subItemList.filter(sub => {
-                    return sub.viewport === viewport || sub.viewport === "responsive" ? sub : null;
-                })
-        }
-        } else return item;
-    });
-};
-
-
 // filter for 'route' selected. Return an item with a sub-items list.
 export const filterSubItemList = (newChannelData, route) => {
 
@@ -58,6 +42,11 @@ export const filterSubItemList = (newChannelData, route) => {
         return item.route === route ? item : null
     });
     return filtered[0];
+};
+
+// get viewport by resize listener.
+export const getViewportByResize = (resize) => {
+    return resize > 760 || resize === 0 ? "desktop" : "mobile";
 };
 
 

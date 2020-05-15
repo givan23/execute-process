@@ -2,25 +2,46 @@ import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import LandingLayoutComponent from "../Components/layout/landing/LandingLayoutComponent";
+import {initSidebarDevtool} from "../../ExternalModules/devtool-module/Core/Actions/SidebarActions";
 
 
 const getSubItemData = (state) => state.devtoolLayoutReducers.subItemData;
+const getScreenSize = (state) => state.devtoolResizeReducers.screenSize;
+
+
+class LandingLayout extends React.Component {
+
+    componentDidMount() {
+        this.props.initSidebarDevtool();
+
+    }
+
+    render() {
+        return <LandingLayoutComponent {...this.props} />
+    }
+}
 
 const mapStateToProps = createSelector(
-    [getSubItemData],
-    (subItemData) => {
+    [getSubItemData,getScreenSize],
+    (subItemData,screenSize) => {
 
-        const [landingCentral = {}, sportList = {}] = subItemData.subItemList || [];
+        const [landingCentral = {}, sportList = {}, sportListMobile = {} ] = subItemData.subItemList || [];
 
         return {
+            screenSize,
             landingCentral,
-            sportList
+            sportList,
+            sportListMobile
         };
     });
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        initSidebarDevtool: () => {
+            dispatch(initSidebarDevtool())
+        }
+    };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingLayoutComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingLayout);
 
