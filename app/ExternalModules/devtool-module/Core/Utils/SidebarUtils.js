@@ -18,14 +18,14 @@ export const updateStatusDropDown = (channelData, route) => {
     );
 };
 
-//filter for 'route' and sub item 'code' returns an list updated of all of all items and sub-items of all routes.
-export const updateStatusSubItem = (channelData, route, code) => {
+//filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list.
+export const updateStatusSubItem = (channelData, route, code, viewport) => {
 
     return channelData.map(item => {
             return item.route === route ?
                 {
                     ...item,
-                    subItemList: item.subItemList.map(sub => {
+                    subItemList: item.subItemList.map((sub) => {
                         return sub.code === code ? {...sub, status: !sub.status} : sub;
                     })
                 }
@@ -34,12 +34,30 @@ export const updateStatusSubItem = (channelData, route, code) => {
     );
 };
 
-// filter for 'route' selected and return a list of items and sub-items of route selected.
+
+//filter for 'viewport'. Return an item with an update sub-item list.
+export const filterSubItemForViewport = (data, route, viewport) => {
+
+    return data.map(item => {
+        if (item.route === route) {
+            return {
+                ...item,
+                subItemList: item.subItemList.filter(sub => {
+                    return sub.viewport === viewport || sub.viewport === "responsive" ? sub : null;
+                })
+        }
+        } else return item;
+    });
+};
+
+
+// filter for 'route' selected. Return an item with a sub-items list.
 export const filterSubItemList = (newChannelData, route) => {
 
     let filtered = newChannelData.filter(item => {
-            return item.route === route ? item : null
-        });
+        return item.route === route ? item : null
+    });
     return filtered[0];
 };
+
 
