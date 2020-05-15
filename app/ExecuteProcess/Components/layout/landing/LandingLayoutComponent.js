@@ -15,7 +15,7 @@ class LandingLayoutComponent extends React.Component {
         return <>
 
             {
-                this.props.screenSize > 760 ?
+                this.props.screenSize > 760 || this.props.screenSize === 0 ?
                     <LandingDesktopComponent  props={this.props}/> :
                     <LandingMobileComponent props={this.props} />
             }

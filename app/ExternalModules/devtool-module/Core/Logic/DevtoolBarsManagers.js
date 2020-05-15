@@ -42,7 +42,6 @@ const managementBarManager = createLogic({
 
                 //go layout
                 let filteredDataByChannel = filterSubItemList(updatedSubItemStatus, route);
-                console.log(filteredDataByChannel);
                 dispatch(storedSubItemFilterData(filteredDataByChannel || []));
 
             }
