@@ -11,7 +11,7 @@ import '../ExternalModules/common-module/styles/clientlib-common.less';
 // CLIENTLIB DEVTOOL - (external. this import is temporary to compile the less files)
 //
 ///////////////////////////////////////
-import '../ExternalModules/devtool-module/style/clientlib-devtool.less';
+import '../ExternalModules/devtool-module/public/style/clientlib-devtool.less';
 
 
 ///////////////////////////////////////
