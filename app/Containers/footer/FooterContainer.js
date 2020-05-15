@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import {FooterComponent} from "../../Components/footer/FooterComponent";
-import {showFooterToggle} from "../../Core/Actions/FooterActions";
 
 
 const getFooterContent = (state) => state.footerReducer.footerContent;
@@ -11,7 +10,7 @@ const getHideFooter = (state) => state.footerReducer.hideFooter;
 
 const mapStateToProps = createSelector (
     [getFooterContent, getHideFooter],
-    (footerContent, hideFooter, screenSize) => {
+    (footerContent, hideFooter) => {
 
         const {socialList = [], sectionList = []} = footerContent;
 
@@ -24,11 +23,7 @@ const mapStateToProps = createSelector (
 );
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        showFooterToggle: () => {
-            dispatch(showFooterToggle())
-        }
-    };
+    return {};
 };
 
 

@@ -17,7 +17,7 @@
   "description": "execute process project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --config webpack.config.js",
+    "start": "webpack-dev-server --progress --config webpack.config.js --env.NODE_TYPE ui-it",
     "build": "webpack --mode production"
   },
   "dependencies": {
