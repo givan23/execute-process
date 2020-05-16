@@ -25,12 +25,12 @@ const ItemListComponent = ({channelData, viewport, toggleItem, toggleSubItem}) =
 
 };
 
-const SubItemListComponent = ({ viewport, route, subItemList, toggleSubItem}) => {
+const SubItemListComponent = ({subItemList, route, viewport, toggleSubItem}) => {
 
     return subItemList.map((subItem, index) => {
 
         return viewport === subItem.viewport || subItem.viewport === "responsive" ?
-            <div key={index} className="btn-sub-item" onClick={() => toggleSubItem(route, subItem.code)}>{subItem.subItemTitle}</div>
+            <div key={index} className={subItem.status ? "btn-sub-item btn-status" : "btn-sub-item" } onClick={() => toggleSubItem(route, subItem.code)}>{subItem.subItemTitle}</div>
             : ""
     });
 };
