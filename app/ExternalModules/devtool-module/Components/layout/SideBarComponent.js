@@ -24,7 +24,9 @@ class SideBarComponent extends React.Component {
             <div className="devtool">
                 <div className={this.state.isClose ? "devtool-sidebar close" : "devtool-sidebar"}>
 
-                    <ToolBarComponent isClose={this.state.isClose} toggleClose={toggleClose}/>
+                    <ToolBarComponent buttonList={this.props.buttonList} isClose={this.state.isClose}
+                                      toggleClose={toggleClose}
+                                      onClickTool={this.props.onClickTool}/>
 
                     <ItemBarComponent channelData={this.props.channelData}
                                       viewport={this.props.viewport}

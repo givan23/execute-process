@@ -1,24 +1,24 @@
 import React from "react";
 
 
-export const ToolBarComponent = ({isClose, toggleClose}) => {
+export const ToolBarComponent = ({buttonList = [], isClose, toggleClose, onClickTool}) => {
 
     return <div className="sidebar-tool-bar">
         <div className="btn-close" onClick={toggleClose}>{isClose ? "◄" : "X"}</div>
         <div className="btn-slot">
 
-            <ButtonListComponent/>
+            <ButtonListComponent buttonList={buttonList} onClickTool={onClickTool}/>
 
         </div>
     </div>
 };
 
-const ButtonListComponent = () => {
-    let arr = [{}, {}];
-    return arr.map((item, index) => {
+const ButtonListComponent = ({buttonList, onClickTool}) => {
 
-        return <div className="btn-item">
-            <img className="btm-img" src={"//localhost:8006/images/tool-bar-devtool/icons/icon-" + index + ".png"}
+    return buttonList.map((item, index) => {
+
+        return <div key={index} className="btn-item" onClick={()=> onClickTool(item.btnCode)}>
+            <img className="btm-img" src={"//localhost:8006/images/tool-bar-devtool/icons/" + item.iconPath}
                  alt=""/>
         </div>
     })

@@ -3,8 +3,8 @@ export const goToPath = (baseUrl, route) => {
 };
 
 // filter for 'channel'
-export const chooseChannelList = (result) => {
-    return result.filter(item => {
+export const chooseChannelList = (channelList) => {
+    return channelList.filter(item => {
         if (item.channel === "URL") return item;
     });
 };

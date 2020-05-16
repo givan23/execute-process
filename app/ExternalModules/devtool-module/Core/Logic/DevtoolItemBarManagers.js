@@ -9,7 +9,7 @@ import {
 import {storedNewChannelData, storedSubItemFilterData} from "../Actions/SidebarActions";
 
 
-const managementBarManager = createLogic({
+const managementItemBarManager = createLogic({
     type: [INIT_BAR_SUB_ITEMS, TOGGLE_ITEM, TOGGLE_SUB_ITEM],
 
     process({action, getState}, dispatch, done) {
@@ -53,5 +53,5 @@ const managementBarManager = createLogic({
     }
 });
 
-export const DevtoolBarsManagers = [managementBarManager];
+export const DevtoolItemBarManagers = [managementItemBarManager];
 

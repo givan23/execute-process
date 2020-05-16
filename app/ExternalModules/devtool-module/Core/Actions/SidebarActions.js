@@ -1,8 +1,8 @@
 import {
     INIT_BAR_SUB_ITEMS,
-    INIT_SIDEBAR_DEVTOOL,
+    INIT_SIDEBAR_DEVTOOL, ON_CLICK_TOOL,
     STORED_CHANNEL_DATA,
-    STORED_NEW_CHANNEL_DATA, STORED_SUB_ITEM_FILTER_DATA,
+    STORED_NEW_CHANNEL_DATA, STORED_SUB_ITEM_FILTER_DATA, STORED_TOOL_BAR_DATA,
     TOGGLE_ITEM,
     TOGGLE_SUB_ITEM
 } from "../Constants/SidebarConstants";
@@ -13,12 +13,13 @@ export const initSidebarDevtool = () => {
         type: INIT_SIDEBAR_DEVTOOL,
     }
 };
+
+
 export const initBarSubItems = () => {
     return {
         type: INIT_BAR_SUB_ITEMS,
     }
 };
-
 
 
 export const storedChannelData = (result) => {
@@ -30,6 +31,19 @@ export const storedChannelData = (result) => {
 
 
 //MANAGEMENT TOOLS BAR
+export const storedToolBarData = (toolBarData) => {
+    return {
+        type: STORED_TOOL_BAR_DATA,
+        toolBarData
+    }
+};
+
+export const onClickTool = (btnCode) => {
+    return {
+        type: ON_CLICK_TOOL,
+        btnCode
+    }
+};
 
 
 
