@@ -1,17 +1,17 @@
 export const DevtoolSettings = {
     code: 1,
     result: {
-        toolBarDetail:{
+        toolBarDetail: {
             buttonList: [
                 {
-                   btnCode: 1,
-                   iconPath: "icon-1.png"
+                    btnCode: 1,
+                    iconPath: "icon-1.png"
                 },
                 {
                     btnCode: 2,
                     iconPath: "icon-2.png"
                 }
-                ]
+            ]
         },
         channelList: [
             {

@@ -19,7 +19,7 @@ const devtoolToolbarManager = createLogic({
 
                 } else if (btnCode === 2) {
 
-                    console.log("click tab 2");
+                    console.log("click theme btn");
 
                 }
 
