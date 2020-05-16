@@ -5,7 +5,7 @@ import centralContentReducers from "../Core/Reducers/central/CentralContentReduc
 import footerReducer from "../Core/Reducers/footer/FooterReducer";
 import devtoolSidebarReducers from "../ExternalModules/devtool-module/Core/Reducers/DevtoolSidebarReducers";
 import devtoolLayoutReducers from "../ExternalModules/devtool-module/Core/Reducers/DevtoolLayoutReducers";
-import devtoolResizeReducers from "../ExternalModules/devtool-module/Core/Reducers/DevtoolResizeReducers";
+import devtoolViewportReducers from "../ExternalModules/devtool-module/Core/Reducers/DevtoolViewportReducers";
 
 
 export default {
@@ -16,6 +16,7 @@ export default {
     footerReducer,
     devtoolSidebarReducers,
     devtoolLayoutReducers,
-    devtoolResizeReducers
+    devtoolViewportReducers,
+
     //%InsertReducer%
 }

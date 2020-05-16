@@ -1,6 +1,6 @@
-import {onResizeEvent} from "../Core/Actions/ResizeScreenActions";
+import {initViewportDevtool} from "../../ExternalModules/devtool-module/Core/Actions/ViewportActions";
 
-export const onResizeWindow = (store) => {
+export const initResizeWindow = (store) => {
     window.addEventListener('resize', () =>
-        store.dispatch(onResizeEvent(window.innerWidth)), false);
+        store.dispatch(initViewportDevtool(window.innerWidth)), false);
 };

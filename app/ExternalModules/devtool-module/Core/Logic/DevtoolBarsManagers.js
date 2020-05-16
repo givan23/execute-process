@@ -1,5 +1,5 @@
 import {createLogic} from "redux-logic";
-import {STATIC_BASE_URL, TOGGLE_ITEM, TOGGLE_SUB_ITEM} from "../Constants/SidebarConstants";
+import {INIT_BAR_SUB_ITEMS, STATIC_BASE_URL, TOGGLE_ITEM, TOGGLE_SUB_ITEM} from "../Constants/SidebarConstants";
 import {
     filterSubItemList,
     goToPath,
@@ -10,7 +10,7 @@ import {storedNewChannelData, storedSubItemFilterData} from "../Actions/SidebarA
 
 
 const managementBarManager = createLogic({
-    type: [TOGGLE_ITEM, TOGGLE_SUB_ITEM],
+    type: [INIT_BAR_SUB_ITEMS, TOGGLE_ITEM, TOGGLE_SUB_ITEM],
 
     process({action, getState}, dispatch, done) {
 
@@ -31,14 +31,13 @@ const managementBarManager = createLogic({
 
             }
 
-            if (channelData && action.type === TOGGLE_SUB_ITEM) {
+            if (channelData && action.type === TOGGLE_SUB_ITEM || channelData && action.type === INIT_BAR_SUB_ITEMS) {
 
                 const {route = "/", code = 2} = action;
 
                 //go devtool
                 let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
                 dispatch(storedNewChannelData(updatedSubItemStatus || []));
-
 
                 //go layout
                 let filteredDataByChannel = filterSubItemList(updatedSubItemStatus, route);

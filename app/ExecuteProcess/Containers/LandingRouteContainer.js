@@ -6,29 +6,16 @@ import {initSidebarDevtool} from "../../ExternalModules/devtool-module/Core/Acti
 
 
 const getSubItemData = (state) => state.devtoolLayoutReducers.subItemData;
-const getScreenSize = (state) => state.devtoolResizeReducers.screenSize;
-
-
-class LandingLayout extends React.Component {
-
-    componentDidMount() {
-        this.props.initSidebarDevtool();
-
-    }
-
-    render() {
-        return <LandingLayoutComponent {...this.props} />
-    }
-}
+const getViewport = (state) => state.devtoolViewportReducers.viewport;
 
 const mapStateToProps = createSelector(
-    [getSubItemData,getScreenSize],
-    (subItemData,screenSize) => {
+    [getSubItemData, getViewport],
+    (subItemData, viewport) => {
 
-        const [landingCentral = {}, sportList = {}, sportListMobile = {} ] = subItemData.subItemList || [];
+        const [landingCentral = {}, sportList = {}, sportListMobile = {}] = subItemData.subItemList || [];
 
         return {
-            screenSize,
+            viewport,
             landingCentral,
             sportList,
             sportListMobile
@@ -43,5 +30,5 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingLayoutComponent);
 

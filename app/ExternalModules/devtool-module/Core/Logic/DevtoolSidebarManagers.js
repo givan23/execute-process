@@ -3,8 +3,9 @@ import "babel-polyfill";
 import {NETWORK_CALL_ERROR, RESPONSE_CODE_SUCCESS} from "../../../../Core/Costants/NetworkConstants";
 import {DevtoolSettings} from "../../../../ExecuteProcess/Settings/DevtoolSettings";
 import {chooseChannelList} from "../Utils/SidebarUtils";
-import {storedChannelData} from "../Actions/SidebarActions";
+import {initBarSubItems, storedChannelData} from "../Actions/SidebarActions";
 import {INIT_SIDEBAR_DEVTOOL} from "../Constants/SidebarConstants";
+
 
 
 const sidebarManager = createLogic({
@@ -20,6 +21,10 @@ const sidebarManager = createLogic({
 
                 let channelData = chooseChannelList(result);
                 dispatch(storedChannelData(channelData[0].list || []));
+
+                dispatch(initBarSubItems());
+
+
             } else {
                 console.log(NETWORK_CALL_ERROR);
             }

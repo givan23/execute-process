@@ -1,30 +1,19 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import SideBarComponent from "../Components/layout/SideBarComponent";
 import {initSidebarDevtool, toggleItem, toggleSubItem} from "../Core/Actions/SidebarActions";
+import SideBarComponent from "../Components/layout/SideBarComponent";
 
-
-class SidebarContent extends React.Component {
-
-    componentDidMount() {
-        this.props.initSidebarDevtool();
-    }
-
-    render() {
-        return <SideBarComponent {...this.props} />
-    }
-}
 
 const getChannelData = (state) => state.devtoolSidebarReducers.channelData;
-const getScreenSize = (state) => state.devtoolResizeReducers.screenSize;
+const getViewport = (state) => state.devtoolViewportReducers.viewport;
 
 const mapStateToProps = createSelector(
-    [getChannelData,getScreenSize],
-    (channelData,screenSize) => {
+    [getChannelData,getViewport],
+    (channelData,viewport) => {
 
         return {
-            screenSize,
+            viewport,
             channelData
 
         };
@@ -45,4 +34,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SidebarContent);
+export default connect(mapStateToProps, mapDispatchToProps)(SideBarComponent);

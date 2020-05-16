@@ -25,8 +25,8 @@ import {
     NAVBAR_SELECTOR_NOT_LOADED
 } from "../ExternalModules/common-module/Constants/ConsoleMessage";
 import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
-import {initSidebarDevtool} from "../ExternalModules/devtool-module/Core/Actions/SidebarActions";
-import {onResizeWindow} from "./Utils/ResizeUtils";
+import {initResizeWindow} from "./Utils/ResizeUtils";
+import {initDevtool} from "../ExternalModules/devtool-module/Core/Actions/InitDevtoolActions";
 
 
 
@@ -146,5 +146,5 @@ renderStaticCentralContent(store, history);
 renderDevtool(store);
 renderStaticFooter(store);
 
-store.dispatch(initSidebarDevtool());
-onResizeWindow(store);
+initResizeWindow(store);
+store.dispatch(initDevtool());

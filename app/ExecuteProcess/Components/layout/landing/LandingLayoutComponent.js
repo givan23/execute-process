@@ -12,31 +12,31 @@ class LandingLayoutComponent extends React.Component {
     }
 
     render() {
-        return <>
 
-            {
-                this.props.screenSize > 760 || this.props.screenSize === 0 ?
-                    <LandingDesktopComponent  props={this.props}/> :
-                    <LandingMobileComponent props={this.props} />
-            }
-        </>
+        let viewport = this.props.viewport;
+console.log(viewport);
+        return <div>
+            {isShow(this.props.landingCentral,viewport) ? parser(landingCentral) : null}
+            {isShow(this.props.sportList,viewport) ? parser(sportList) : null}
+            {isShow(this.props.sportListMobile,viewport) ? parser(sportListMobile) : null}
+        </div>
     }
 }
 
 export default LandingLayoutComponent;
 
-const LandingDesktopComponent = ({props}) => {
-
-    return <div>
-        {isShow(props.landingCentral) ? parser(landingCentral) : null}
-        {isShow(props.sportList) ? parser(sportList) : null}
-    </div>
-};
-
-const LandingMobileComponent = ({props}) => {
-
-    return <div>
-        {isShow(props.landingCentral) ? parser(landingCentral) : null}
-        {isShow(props.sportListMobile) ? parser(sportListMobile) : null}
-    </div>
-}
+// const LandingDesktopComponent = ({props}) => {
+//
+//     return <div>
+//         {isShow(props.landingCentral) ? parser(landingCentral) : null}
+//         {isShow(props.sportList) ? parser(sportList) : null}
+//     </div>
+// };
+//
+// const LandingMobileComponent = ({props}) => {
+//
+//     return <div>
+//         {isShow(props.landingCentral) ? parser(landingCentral) : null}
+//         {isShow(props.sportListMobile) ? parser(sportListMobile) : null}
+//     </div>
+// }

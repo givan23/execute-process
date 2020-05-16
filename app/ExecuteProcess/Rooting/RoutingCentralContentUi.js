@@ -8,7 +8,7 @@ const RoutingStaticCentralContent = () => {
     return (
         <div>
             <Switch>
-                <Route path="/quote" component={QuoteLayoutContainer}/>
+                {/*<Route path="/quote" component={QuoteLayoutContainer}/>*/}
                 <Route path="/" component={LandingLayoutContainer}/>
 
             </Switch>

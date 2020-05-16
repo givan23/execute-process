@@ -1,4 +1,5 @@
 import {
+    INIT_BAR_SUB_ITEMS,
     INIT_SIDEBAR_DEVTOOL,
     STORED_CHANNEL_DATA,
     STORED_NEW_CHANNEL_DATA, STORED_SUB_ITEM_FILTER_DATA,
@@ -12,6 +13,13 @@ export const initSidebarDevtool = () => {
         type: INIT_SIDEBAR_DEVTOOL,
     }
 };
+export const initBarSubItems = () => {
+    return {
+        type: INIT_BAR_SUB_ITEMS,
+    }
+};
+
+
 
 export const storedChannelData = (result) => {
     return {

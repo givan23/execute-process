@@ -27,7 +27,7 @@ export const DevtoolSettings = {
                             code: 3,
                             subItemTitle: "sportListMobile",
                             viewport: "mobile",
-                            status: false
+                            status: true
 
                         },
                     ]
