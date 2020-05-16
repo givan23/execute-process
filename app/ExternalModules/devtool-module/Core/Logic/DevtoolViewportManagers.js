@@ -1,8 +1,8 @@
 import {createLogic} from "redux-logic";
 import "babel-polyfill";
-import {giveViewport} from "../Utils/SidebarUtils";
 import {storedViewportData} from "../Actions/ViewportActions";
 import {INIT_VIEWPORT_DEVTOOL} from "../Constants/ViewportConstants";
+import {giveViewport} from "../Utils/ViewportUtils";
 
 
 const viewportManager = createLogic({

@@ -1,5 +1,5 @@
 import React from "react";
-import {getViewportByResize} from "../../Core/Utils/SidebarUtils";
+
 
 export const ItemBarComponent = ({channelData = [], viewport, toggleItem, toggleSubItem}) => {
 

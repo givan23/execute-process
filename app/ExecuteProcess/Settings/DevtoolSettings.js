@@ -5,7 +5,7 @@ export const DevtoolSettings = {
             channel: "URL",
             list: [
                 {
-                    routeTitle: "Landing",
+                    routeTitle: "LANDING",
                     route: "/",
                     selected: false,
                     subItemList: [
@@ -33,7 +33,7 @@ export const DevtoolSettings = {
                     ]
                 },
                 {
-                    routeTitle: "Quote",
+                    routeTitle: "QUOTE",
                     route: "/quote",
                     selected: false,
                     subItemList: [
