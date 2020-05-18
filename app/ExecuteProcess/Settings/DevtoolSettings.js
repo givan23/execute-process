@@ -19,7 +19,7 @@ export const DevtoolSettings = {
                 list: [
                     {
                         routeTitle: "HEADER",
-                        route: "",
+                        route: "/header",
                         selected: false,
                         subItemList: [
                             {
@@ -80,7 +80,7 @@ export const DevtoolSettings = {
                     },
                     {
                         routeTitle: "FOOTER",
-                        route: "",
+                        route: "/footer",
                         selected: false,
                         subItemList: [
                             {

@@ -1,5 +1,5 @@
 export const goToPath = (baseUrl, route) => {
-    window.location.href = baseUrl + route;
+    return route === "/header" || route === "/footer"? "" : window.location.href = baseUrl + route;
 };
 
 // filter for 'channel'

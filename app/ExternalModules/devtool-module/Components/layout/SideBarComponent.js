@@ -31,7 +31,7 @@ class SideBarComponent extends React.Component {
 
             <div className={this.state.isCloseFull ? "devtool-hide-button-box close-button-full" : "devtool-hide-button-box"}
                  onClick={() => toggleCloseFull()}>
-                <div className="btn-close">{"►"}</div>
+                <div className="btn-close">{this.state.isCloseFull ? "◄" : "►" }</div>
             </div>
 
             <div className="devtool-box">

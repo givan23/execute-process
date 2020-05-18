@@ -25,6 +25,7 @@ const managementItemBarManager = createLogic({
                 //change path
                 goToPath(STATIC_BASE_URL, route);
 
+
                 //go devtool
                 let newChannelData = updateStatusDropDown(channelData, route);
                 dispatch(storedNewChannelData(newChannelData || []));
@@ -41,7 +42,10 @@ const managementItemBarManager = createLogic({
 
                 //go layout
                 let filteredDataByChannel = filterSubItemList(updatedSubItemStatus, route);
-                dispatch(storedSubItemFilterData(filteredDataByChannel || []));
+                filteredDataByChannel.route === "/header" || filteredDataByChannel.route === "/footer" ?
+                    console.log("WIP")
+                    :
+                    dispatch(storedSubItemFilterData(filteredDataByChannel || []));
 
             }
 
