@@ -5,14 +5,13 @@ import { ConnectedRouter } from 'connected-react-router';
 import {store, history } from '../Store/CreateStore';
 
 import HeaderLayoutContainer from "../ExternalModules/common-module/Containers/HeaderLayoutContainer";
-import NavBarLayoutContainer from "../ExternalModules/common-module/Containers/NavBarLayoutContainer";
 import RoutingStaticCentralContent from "./Rooting/RoutingCentralContentUi";
 import FooterLayoutContainer from "../ExternalModules/common-module/Containers/FooterLayoutContainer";
 
 import {
     CENTRAL_CONTENT_SELECTOR, DEVTOOL_SELECTOR,
     FOOTER_SELECTOR,
-    HEADER_SELECTOR, TOOL_BAR_SELECTOR
+    HEADER_SELECTOR, SEARCH_BAR_SELECTOR, TOOL_BAR_SELECTOR
 } from "../ExternalModules/common-module/Constants/SelectorConstants";
 import {
     BOX_MESSAGE_GREEN,
@@ -27,6 +26,7 @@ import {
 import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
 import {initResizeWindow} from "./Utils/ResizeUtils";
 import {initDevtool} from "../ExternalModules/devtool-module/Core/Actions/InitDevtoolActions";
+import SearchBarLayoutContainer from "../ExternalModules/common-module/Containers/SearchBarLayoutContainer";
 
 
 
@@ -52,18 +52,18 @@ export const renderStaticHeader = store => {
     }, 500)
 };
 
-export const renderStaticNavBar = store => {
+export const renderStaticSearchBar = store => {
     const interval = setInterval(() => {
 
-        const toolBarWrapper = document.getElementById(TOOL_BAR_SELECTOR);
+        const searchBarWrapper = document.getElementById(SEARCH_BAR_SELECTOR);
 
-        if (toolBarWrapper) {
+        if (searchBarWrapper) {
             clearInterval(interval);
             render(
                 <Provider store={store}>
-                    <NavBarLayoutContainer/>
+                    <SearchBarLayoutContainer/>
                 </Provider>,
-                toolBarWrapper
+                searchBarWrapper
             );
             console.log(NAVBAR_SELECTOR_LOADED, BOX_MESSAGE_GREEN);
         } else {
@@ -141,7 +141,7 @@ export const renderStaticFooter = store => {
 
 
 renderStaticHeader(store);
-renderStaticNavBar(store);
+renderStaticSearchBar(store);
 renderStaticCentralContent(store, history);
 renderDevtool(store);
 renderStaticFooter(store);

@@ -1,0 +1,116 @@
+////////////////////////////////////////////////
+//
+// SEARCH BAR
+//
+////////////////////////////////////////////////
+
+.search-bar {
+  height: 34px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  right: 50px;
+  background-color: #c81a21;
+
+  // INPUT
+  .input-box {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    flex-wrap: nowrap;
+    width: 76%;
+    height: 34px;
+    background-color: #c81a21;
+
+    .img-input {
+      width: 30px;
+      height: 32px;
+      background-color: #c81a21;
+    }
+
+    //modify class
+    .modify-bg {
+      background-color: white;
+    }
+
+    .search-input {
+      display: flex;
+      flex-wrap: nowrap;
+      height: 33px;
+      width: 142px;
+      transition: width .35s ease-in-out;
+      margin-right: 15px;
+      padding-left: 5px;
+      border: none;
+      outline: none;
+      font-size: 17px;
+      font-style: italic;
+      color: transparent;
+      background-color: #c81a21;
+
+    }
+
+    .search-input:focus {
+      width: 92.5%;
+      background-color: white;
+      border-bottom: 0.5px #c81a21 solid;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    //PLACEHOLDER
+    ::placeholder {
+      color: white;
+      font-size: 16px;
+      font-style: italic;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: white;
+      font-size: 16px;
+      font-style: italic;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+      color: white;
+      font-size: 16px;
+      font-style: italic;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+}
+
+// SPORT LIST
+.search-bar {
+  .sport-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21%;
+    height: 34px;
+    background-color: white;
+    margin-left: 10px
+  }
+}
+
+// BETS SLIP
+.search-bar {
+  .betting-box {
+    display: flex;
+    align-items: center;
+    width: 28%;
+    height: 34px;
+    color: white;
+    margin-right: 10px;
+    padding-left: 15px;
+    font-size: 16px;
+    font-family: "Arial Black", serif;
+    background-color: #252835;
+  }
+}
+
+
+
+
+

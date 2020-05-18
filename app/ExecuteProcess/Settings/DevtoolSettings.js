@@ -18,6 +18,20 @@ export const DevtoolSettings = {
                 channel: "URL",
                 list: [
                     {
+                        routeTitle: "HEADER",
+                        route: "",
+                        selected: false,
+                        subItemList: [
+                            {
+                                code: 1,
+                                subItemTitle: "header",
+                                viewport: "responsive",
+                                status: true,
+
+                            },
+                        ]
+                    },
+                    {
                         routeTitle: "LANDING",
                         route: "/",
                         selected: false,
@@ -63,7 +77,20 @@ export const DevtoolSettings = {
                                 status: true
                             },
                         ]
-                    }
+                    },
+                    {
+                        routeTitle: "FOOTER",
+                        route: "",
+                        selected: false,
+                        subItemList: [
+                            {
+                                code: 1,
+                                subItemTitle: "footer",
+                                viewport: "responsive",
+                                status: true,
+                            },
+                        ]
+                    },
                 ],
             },
             {

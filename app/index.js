@@ -7,13 +7,14 @@ import {
     CENTRAL_CONTENT_SELECTOR,
     ERROR_WRAPPER_FOUND,
     FOOTER_SELECTOR,
-    HEADER_SELECTOR, TOOL_BAR_SELECTOR
+    HEADER_SELECTOR, SEARCH_BAR_SELECTOR, TOOL_BAR_SELECTOR
 } from "./Core/Costants/IndexConstants";
 import RoutingCentralContent from "./Components/RoutingCentralContent";
 import HeaderContainer from "./Containers/header/HeaderContainer";
 import FooterContainer from "./Containers/footer/FooterContainer";
 import ToolBarContainer from "./Containers/tool-bar/ToolBarContainer";
 import {initApp} from "./Core/Actions/CommonActions";
+
 
 
 

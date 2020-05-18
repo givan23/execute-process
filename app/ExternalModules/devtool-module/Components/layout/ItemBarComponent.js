@@ -5,7 +5,7 @@ export const ItemBarComponent = ({channelData = [], viewport, toggleItem, toggle
 
     return <div className="sidebar-item-bar">
         <div className="item-bar-title">
-            <p className="title">Title</p>
+            <p className="title">ROUTES</p>
         </div>
 
         <ItemListComponent channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>
