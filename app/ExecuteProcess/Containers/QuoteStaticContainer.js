@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import QuoteLayoutComponent from "../Components/layout/quote/QuoteLayoutComponent";
+import QuoteStaticComponent from "../Components/QuoteStaticComponent";
 
 
-const getStaticData = (state) => state.devtoolLayoutReducers.staticData;
-const getViewport = (state) => state.devtoolViewportReducers.viewport;
+const getStaticData = (state) => state.staticDevtoolReducers.staticData;
+const getViewport = (state) => state.viewportDevtoolReducers.viewport;
 
 const mapStateToProps = createSelector(
     [getStaticData, getViewport],
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuoteLayoutComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(QuoteStaticComponent);

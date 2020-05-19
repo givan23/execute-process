@@ -1,6 +1,6 @@
 import React from "react";
 import parser from "react-html-parser";
-import searchBar from "../../snippet/search-bar/search-bar.html";
+import searchBar from "./snippet/search-bar/search-bar.html";
 
 class SearchBarLayoutComponent extends React.Component {
 

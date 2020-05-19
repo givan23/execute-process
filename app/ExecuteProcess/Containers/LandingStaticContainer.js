@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import LandingLayoutComponent from "../Components/layout/landing/LandingLayoutComponent";
+import LandingStaticComponent from "../Components/LandingStaticComponent";
 import {initSidebarDevtool} from "../../ExternalModules/devtool-module/Core/Actions/SidebarActions";
 
 
-const getStaticData = (state) => state.devtoolLayoutReducers.staticData;
-const getViewport = (state) => state.devtoolViewportReducers.viewport;
+const getStaticData = (state) => state.staticDevtoolReducers.staticData;
+const getViewport = (state) => state.viewportDevtoolReducers.viewport;
 
 const mapStateToProps = createSelector(
     [getStaticData, getViewport],
@@ -30,5 +30,5 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingLayoutComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingStaticComponent);
 

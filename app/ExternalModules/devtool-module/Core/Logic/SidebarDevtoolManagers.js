@@ -39,4 +39,4 @@ const sidebarManager = createLogic({
     }
 });
 
-export const DevtoolSidebarManagers = [sidebarManager];
+export const SidebarDevtoolManagers = [sidebarManager];

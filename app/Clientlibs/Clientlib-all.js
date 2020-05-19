@@ -3,7 +3,7 @@
 // CLIENTLIB COMMON - (external. this import is temporary to compile the less files)
 //
 ///////////////////////////////////////
-import '../ExternalModules/common-module/styles/clientlib-common.less';
+import '../ExternalModules/common-module/public/styles/clientlib-common.less';
 
 
 ///////////////////////////////////////

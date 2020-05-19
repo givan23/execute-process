@@ -7,7 +7,7 @@ import {
     STORED_SUB_ITEM_FILTER_DATA,
     STORED_SUB_ITEM_FOOTER_DATA,
     STORED_SUB_ITEM_HEADER_DATA,
-    STORED_TOOL_BAR_DATA,
+    STORED_TOOL_BAR_DATA, TOGGLE_CLOSE_FULL_SIDEBAR, TOGGLE_CLOSE_SIDEBAR,
     TOGGLE_ITEM,
     TOGGLE_SUB_ITEM
 } from "../Constants/SidebarConstants";
@@ -34,6 +34,18 @@ export const storedChannelData = (result) => {
     }
 };
 
+export const toggleCloseSidebar = () => {
+    return {
+        type: TOGGLE_CLOSE_SIDEBAR,
+    }
+};
+
+export const toggleCloseFullSidebar = () => {
+    return {
+        type: TOGGLE_CLOSE_FULL_SIDEBAR,
+    }
+};
+
 
 //MANAGEMENT TOOLS BAR
 export const storedToolBarData = (toolBarData) => {
@@ -49,8 +61,6 @@ export const onClickTool = (btnCode) => {
         btnCode
     }
 };
-
-
 
 //MANAGEMENT ITEM BAR
 export const toggleItem = (route) => {

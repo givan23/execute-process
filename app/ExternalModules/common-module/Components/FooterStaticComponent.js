@@ -1,7 +1,7 @@
 import React from "react";
 import parser from "react-html-parser";
-import footer from "../../snippet/footer/footer.html";
-import {isShow} from "../../../../../ExecuteProcess/Utils/layoutUtils";
+import footer from "./snippet/footer/footer.html";
+import {isShow} from "../../../ExecuteProcess/Utils/layoutUtils";
 
 
 class FooterStaticComponent extends React.Component {

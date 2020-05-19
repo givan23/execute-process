@@ -1,7 +1,7 @@
 import React from "react";
 import parser from "react-html-parser";
-import header from "../../snippet/header/header.html";
-import {isShow} from "../../../../../ExecuteProcess/Utils/layoutUtils";
+import header from "./snippet/header/header.html";
+import {isShow} from "../../../ExecuteProcess/Utils/layoutUtils";
 
 
 class HeaderStaticComponent extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router'
-import LandingLayoutContainer from "../Containers/LandingRouteContainer";
-import QuoteLayoutContainer from "../Containers/QuoteRouteContainer";
+import LandingLayoutContainer from "../Containers/LandingStaticContainer";
+import QuoteLayoutContainer from "../Containers/QuoteStaticContainer";
 
 const RoutingStaticCentralContent = () => {
 

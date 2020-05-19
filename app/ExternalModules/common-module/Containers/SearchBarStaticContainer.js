@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import SearchBarLayoutComponent from "../Components/layout/search-bar/SearchBarLayoutComponent";
+import SearchBarLayoutComponent from "../Components/SearchBarLayoutComponent";
 
 
 const mapStateToProps = createSelector (

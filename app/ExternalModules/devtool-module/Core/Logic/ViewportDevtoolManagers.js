@@ -32,4 +32,4 @@ const viewportManager = createLogic({
     }
 });
 
-export const DevtoolViewportManagers = [viewportManager];
+export const ViewportDevtoolManagers = [viewportManager];

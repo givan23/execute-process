@@ -7,11 +7,6 @@ const storedCentralDetail = (draft, action) => {
     draft.centralContent = centralContent;
 };
 
-const onResizeEvent = (draft, action) => {
-
-    draft.screenSize = action.screenSize;
-};
-
 
 const initState = {
     centralContent: {},
@@ -20,5 +15,4 @@ const initState = {
 
 export default createReducer({
     STORED_CENTRAL_DETAIL: storedCentralDetail,
-    ON_RESIZE_EVENT: onResizeEvent,
 }, initState);

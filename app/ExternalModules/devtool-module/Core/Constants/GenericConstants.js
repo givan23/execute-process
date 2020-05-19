@@ -1,2 +1,3 @@
-export const MINUS_ONE = -1;
-export const ZERO = 0;
+export const ARROW_SX = "◄";
+export const ARROW_DX = "►";
+export const X_BTN = "►";

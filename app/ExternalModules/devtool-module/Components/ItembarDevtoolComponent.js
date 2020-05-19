@@ -1,22 +1,20 @@
 import React from "react";
+import {ROUTES_TITLE} from "../Core/Constants/SidebarConstants";
 
 
-export const ItemBarComponent = ({channelData = [], viewport, toggleItem, toggleSubItem}) => {
+export const ItembarDevtoolComponent = ({channelData = [], viewport, toggleItem, toggleSubItem}) => {
 
     return <div className="sidebar-item-bar">
         <div className="item-bar-title">
-            <p className="title">ROUTES</p>
+            <p className="title">{ROUTES_TITLE}</p>
         </div>
-
         <ItemListComponent channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>
-
     </div>
 };
 
-const ItemListComponent = ({channelData, viewport, toggleItem, toggleSubItem}) => {
+const ItemListComponent = ({channelData = [], viewport, toggleItem, toggleSubItem}) => {
 
     return channelData.map((item, index) => {
-
         return <div key={index}>
             <div className="btn-item" onClick={() => toggleItem(item.route)}>{item.routeTitle}</div>
             {item.selected ? <SubItemListComponent viewport={viewport} route={item.route} subItemList={item.subItemList} toggleSubItem={toggleSubItem}/> : ""}

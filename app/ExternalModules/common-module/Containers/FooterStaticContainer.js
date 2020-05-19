@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import FooterStaticComponent from "../Components/layout/footer/FooterStaticComponent";
+import FooterStaticComponent from "../Components/FooterStaticComponent";
 
 
 const getStaticDataFooter = (state) => state.footerStaticReducers.staticData;
-const getViewport = (state) => state.devtoolViewportReducers.viewport;
+const getViewport = (state) => state.viewportDevtoolReducers.viewport;
 
 const mapStateToProps = createSelector (
     [getStaticDataFooter, getViewport],

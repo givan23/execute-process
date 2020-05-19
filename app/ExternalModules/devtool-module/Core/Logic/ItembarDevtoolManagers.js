@@ -20,7 +20,6 @@ import {
     storedSubItemFooterData,
     storedSubItemHeaderData
 } from "../Actions/SidebarActions";
-import {MINUS_ONE, ZERO} from "../Constants/GenericConstants";
 
 
 const managementItemBarManager = createLogic({
@@ -30,7 +29,7 @@ const managementItemBarManager = createLogic({
 
         try {
 
-            const {channelData = []} = getState().devtoolSidebarReducers;
+            const {channelData = []} = getState().sidebarDevtoolReducers;
 
             if (channelData && action.type === TOGGLE_ITEM) {
 
@@ -79,5 +78,5 @@ const managementItemBarManager = createLogic({
     }
 });
 
-export const DevtoolItemBarManagers = [managementItemBarManager];
+export const ItembarDevtoolManagers = [managementItemBarManager];
 

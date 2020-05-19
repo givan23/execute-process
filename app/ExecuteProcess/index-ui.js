@@ -6,20 +6,20 @@ import {store, history} from '../Store/CreateStore';
 
 import {
     CENTRAL_CONTENT_SELECTOR, DEVTOOL_SELECTOR, FOOTER_SELECTOR, HEADER_SELECTOR, SEARCH_BAR_SELECTOR
-} from "../ExternalModules/common-module/Constants/SelectorConstants";
+} from "../ExternalModules/common-module/Core/Constants/SelectorConstants";
 import {
     BOX_MESSAGE_GREEN, BOX_MESSAGE_RED, CENTRAL_SELECTOR_LOADED,
     CENTRAL_SELECTOR_NOT_LOADED, DEVTOOL_LOADED, DEVTOOL_NOT_LOADED,
     FOOTER_SELECTOR_LOADED, FOOTER_SELECTOR_NOT_LOADED, HEADER_SELECTOR_LOADED,
     HEADER_SELECTOR_NOT_LOADED, NAVBAR_SELECTOR_LOADED, NAVBAR_SELECTOR_NOT_LOADED
-} from "../ExternalModules/common-module/Constants/ConsoleMessage";
+} from "../ExternalModules/common-module/Core/Constants/ConsoleMessageConstants";
 
 import {initResizeWindow} from "./Utils/ResizeUtils";
 import {initDevtool} from "../ExternalModules/devtool-module/Core/Actions/InitDevtoolActions";
 import HeaderStaticContainer from "../ExternalModules/common-module/Containers/HeaderStaticContainer";
 import SearchBarStaticContainer from "../ExternalModules/common-module/Containers/SearchBarStaticContainer";
 import RoutingStaticCentralContent from "./Rooting/RoutingCentralContentUi";
-import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
+import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/SidebarDevtoolContainer";
 import FooterStaticContainer from "../ExternalModules/common-module/Containers/FooterStaticContainer";
 
 

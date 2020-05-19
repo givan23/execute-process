@@ -5,10 +5,10 @@ import {ToolBarManagers} from "../Core/Logic/tool-bar/ToolBarManagers";
 import {CentralContentManagers} from "../Core/Logic/central/CentralContentManagers";
 import {FooterManagers} from "../Core/Logic/footer/FooterManagers";
 import {InitDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/InitDevtoolManagers";
-import {DevtoolViewportManagers} from "../ExternalModules/devtool-module/Core/Logic/DevtoolViewportManagers";
-import {DevtoolSidebarManagers} from "../ExternalModules/devtool-module/Core/Logic/DevtoolSidebarManagers";
-import {DevtoolToolbarManagers} from "../ExternalModules/devtool-module/Core/Logic/DevtoolToolbarManagers";
-import {DevtoolItemBarManagers} from "../ExternalModules/devtool-module/Core/Logic/DevtoolItemBarManagers";
+import {ViewportDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ViewportDevtoolManagers";
+import {SidebarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/SidebarDevtoolManagers";
+import {DevtoolToolbarManagers} from "../ExternalModules/devtool-module/Core/Logic/ToolbarDevtoolManagers";
+import {ItembarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ItembarDevtoolManagers";
 
 
 
@@ -21,13 +21,12 @@ const managers = [
     ...ToolBarManagers,
     ...CentralContentManagers,
     ...FooterManagers,
+    //DEVTOOL
     ...InitDevtoolManagers,
-    ...DevtoolViewportManagers,
-    ...DevtoolSidebarManagers,
+    ...ViewportDevtoolManagers,
+    ...SidebarDevtoolManagers,
     ...DevtoolToolbarManagers,
-    ...DevtoolItemBarManagers
-
-
+    ...ItembarDevtoolManagers
     //%InsertManager%
 ];
 

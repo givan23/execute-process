@@ -1,12 +1,12 @@
 import parser from "react-html-parser";
-import quoteCentral from "../../snippet/quote/quote-central.html";
-import sportList from "../../snippet/sport-list/sport-list.html";
-import {isShow} from "../../../Utils/layoutUtils";
-import sportListMobile from "../../snippet/sport-list/sport-list-mobile.html";
+import quoteCentral from "./snippet/quote/quote-central.html";
+import sportList from "./snippet/sport-list/sport-list.html";
+import {isShow} from "../Utils/layoutUtils";
+import sportListMobile from "./snippet/sport-list/sport-list-mobile.html";
 import React from "react";
 
 
-class QuoteLayoutComponent extends React.Component {
+class QuoteStaticComponent extends React.Component {
 
     constructor(props) {
         super(props);
@@ -25,4 +25,4 @@ class QuoteLayoutComponent extends React.Component {
     }
 }
 
-export default QuoteLayoutComponent;
+export default QuoteStaticComponent;
