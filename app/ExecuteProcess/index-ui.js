@@ -4,14 +4,10 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import {store, history } from '../Store/CreateStore';
 
-import HeaderLayoutContainer from "../ExternalModules/common-module/Containers/HeaderLayoutContainer";
-import RoutingStaticCentralContent from "./Rooting/RoutingCentralContentUi";
-import FooterLayoutContainer from "../ExternalModules/common-module/Containers/FooterLayoutContainer";
-
 import {
     CENTRAL_CONTENT_SELECTOR, DEVTOOL_SELECTOR,
     FOOTER_SELECTOR,
-    HEADER_SELECTOR, SEARCH_BAR_SELECTOR, TOOL_BAR_SELECTOR
+    HEADER_SELECTOR, SEARCH_BAR_SELECTOR
 } from "../ExternalModules/common-module/Constants/SelectorConstants";
 import {
     BOX_MESSAGE_GREEN,
@@ -23,11 +19,14 @@ import {
     NAVBAR_SELECTOR_LOADED,
     NAVBAR_SELECTOR_NOT_LOADED
 } from "../ExternalModules/common-module/Constants/ConsoleMessage";
-import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
+
 import {initResizeWindow} from "./Utils/ResizeUtils";
 import {initDevtool} from "../ExternalModules/devtool-module/Core/Actions/InitDevtoolActions";
-import SearchBarLayoutContainer from "../ExternalModules/common-module/Containers/SearchBarLayoutContainer";
-
+import HeaderStaticContainer from "../ExternalModules/common-module/Containers/HeaderStaticContainer";
+import SearchBarStaticContainer from "../ExternalModules/common-module/Containers/SearchBarStaticContainer";
+import RoutingStaticCentralContent from "./Rooting/RoutingCentralContentUi";
+import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
+import FooterStaticContainer from "../ExternalModules/common-module/Containers/FooterStaticContainer";
 
 
 
@@ -41,7 +40,7 @@ export const renderStaticHeader = store => {
 
             render(
                 <Provider store={store}>
-                    <HeaderLayoutContainer/>
+                    <HeaderStaticContainer/>
                 </Provider>,
                 headerWrapper
             );
@@ -52,6 +51,7 @@ export const renderStaticHeader = store => {
     }, 500)
 };
 
+
 export const renderStaticSearchBar = store => {
     const interval = setInterval(() => {
 
@@ -61,7 +61,7 @@ export const renderStaticSearchBar = store => {
             clearInterval(interval);
             render(
                 <Provider store={store}>
-                    <SearchBarLayoutContainer/>
+                    <SearchBarStaticContainer/>
                 </Provider>,
                 searchBarWrapper
             );
@@ -128,7 +128,7 @@ export const renderStaticFooter = store => {
             clearInterval(interval);
             render(
                 <Provider store={store}>
-                    <FooterLayoutContainer/>
+                    <FooterStaticContainer/>
                 </Provider>,
                 footerWrapper
             );
@@ -140,11 +140,11 @@ export const renderStaticFooter = store => {
 };
 
 
+
+initResizeWindow(store);
 renderStaticHeader(store);
 renderStaticSearchBar(store);
 renderStaticCentralContent(store, history);
-renderDevtool(store);
 renderStaticFooter(store);
-
-initResizeWindow(store);
 store.dispatch(initDevtool());
+renderDevtool(store);

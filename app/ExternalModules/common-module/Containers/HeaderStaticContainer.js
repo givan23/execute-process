@@ -4,16 +4,18 @@ import {createSelector} from "reselect";
 import HeaderLayoutComponent from "../Components/layout/header/HeaderLayoutComponent";
 
 
-const getHeaderContent = (state) => state.headerReducer.headerContent;
+const getStaticDataHeader = (state) => state.headerStaticReducers.staticData;
+const getViewport = (state) => state.devtoolViewportReducers.viewport;
 
 const mapStateToProps = createSelector (
-    [getHeaderContent],
-    (headerContent) => {
-        const { headerItem = {}, navBarItems = {} } = headerContent;
+    [getStaticDataHeader, getViewport],
+    (staticData, viewport) => {
+
+console.log("data static header: ", staticData);
+console.log("viewport header: ", viewport);
 
         return {
-            headerItem,
-            navBarItems
+
         };
     });
 

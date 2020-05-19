@@ -3,7 +3,7 @@ export const goToPath = (baseUrl, route) => {
 };
 
 // filter for 'channel'
-export const chooseChannelList = (channelList) => {
+export const filterItemByChannel = (channelList) => {
     return channelList.filter(item => {
         if (item.channel === "URL") return item;
     });
@@ -16,6 +16,11 @@ export const updateStatusDropDown = (channelData, route) => {
             return item.route === route ? {...item, selected: !item.selected} : {...item, selected: false};
         }
     );
+};
+
+//filter for EXACT 'route' and sub-item 'code'. Returns a updated items and sub-items list.
+export const filterByExactRoute = (data, route) => {
+    return data.filter(item => {return item.route === route })
 };
 
 //filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list.
@@ -34,7 +39,6 @@ export const updateStatusSubItem = (channelData, route, code) => {
     );
 };
 
-
 // filter for 'route' selected. Return an item with a sub-items list.
 export const filterSubItemList = (newChannelData, route) => {
 
@@ -43,8 +47,3 @@ export const filterSubItemList = (newChannelData, route) => {
     });
     return filtered[0];
 };
-
-
-
-
-

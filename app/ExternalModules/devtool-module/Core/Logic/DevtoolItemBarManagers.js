@@ -1,12 +1,26 @@
 import {createLogic} from "redux-logic";
-import {INIT_BAR_SUB_ITEMS, STATIC_BASE_URL, TOGGLE_ITEM, TOGGLE_SUB_ITEM} from "../Constants/SidebarConstants";
 import {
-    filterSubItemList,
+    FOOTER_ROUTE,
+    HEADER_ROUTE,
+    INIT_BAR_SUB_ITEMS, LANDING_ROUTE, QUOTE_ROUTE,
+    STATIC_BASE_URL,
+    TOGGLE_ITEM,
+    TOGGLE_SUB_ITEM
+} from "../Constants/SidebarConstants";
+import {
+    filterByExactRoute,
+    filterSubItemList, getStatusRoute,
     goToPath,
     updateStatusDropDown,
     updateStatusSubItem
 } from "../Utils/SidebarUtils";
-import {storedNewChannelData, storedSubItemFilterData} from "../Actions/SidebarActions";
+import {
+    storedNewChannelData,
+    storedSubItemFilterData,
+    storedSubItemFooterData,
+    storedSubItemHeaderData
+} from "../Actions/SidebarActions";
+import {MINUS_ONE, ZERO} from "../Constants/GenericConstants";
 
 
 const managementItemBarManager = createLogic({
@@ -36,17 +50,25 @@ const managementItemBarManager = createLogic({
 
                 const {route = "/", code = 2} = action;
 
-                //go devtool
+                // go devtool
                 let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
+
+                // go layout
+                // These filters guarantee the consistency of the data in the specific reducers
+                // at the initialization of the application
+                const headerFilterData = filterByExactRoute(updatedSubItemStatus, HEADER_ROUTE);
+                const footerFilterData = filterByExactRoute(updatedSubItemStatus, FOOTER_ROUTE);
+                dispatch(storedSubItemHeaderData(headerFilterData || []));
+                dispatch(storedSubItemFooterData(footerFilterData || []));
                 dispatch(storedNewChannelData(updatedSubItemStatus || []));
 
-                //go layout
-                let filteredDataByChannel = filterSubItemList(updatedSubItemStatus, route);
-                filteredDataByChannel.route === "/header" || filteredDataByChannel.route === "/footer" ?
-                    console.log("WIP")
-                    :
-                    dispatch(storedSubItemFilterData(filteredDataByChannel || []));
-
+                //allows you to correctly update the status of items other than the header and footer ones
+                if(route === HEADER_ROUTE || route === FOOTER_ROUTE){
+                    return "";
+                } else {
+                    let filteredDataByRoute = filterSubItemList(updatedSubItemStatus, route);
+                    dispatch(storedSubItemFilterData( filteredDataByRoute || []))
+                }
             }
 
         } catch (error) {

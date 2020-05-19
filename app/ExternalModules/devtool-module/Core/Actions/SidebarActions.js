@@ -1,8 +1,13 @@
 import {
     INIT_BAR_SUB_ITEMS,
-    INIT_SIDEBAR_DEVTOOL, ON_CLICK_TOOL,
+    INIT_SIDEBAR_DEVTOOL,
+    ON_CLICK_TOOL,
     STORED_CHANNEL_DATA,
-    STORED_NEW_CHANNEL_DATA, STORED_SUB_ITEM_FILTER_DATA, STORED_TOOL_BAR_DATA,
+    STORED_NEW_CHANNEL_DATA,
+    STORED_SUB_ITEM_FILTER_DATA,
+    STORED_SUB_ITEM_FOOTER_DATA,
+    STORED_SUB_ITEM_HEADER_DATA,
+    STORED_TOOL_BAR_DATA,
     TOGGLE_ITEM,
     TOGGLE_SUB_ITEM
 } from "../Constants/SidebarConstants";
@@ -69,9 +74,24 @@ export const storedNewChannelData = (newResult) => {
         newResult
     }
 };
+
 export const storedSubItemFilterData = (filterResult) => {
     return {
         type: STORED_SUB_ITEM_FILTER_DATA,
+        filterResult
+    }
+};
+
+export const storedSubItemHeaderData = (filterResult) => {
+    return {
+        type: STORED_SUB_ITEM_HEADER_DATA,
+        filterResult
+    }
+};
+
+export const storedSubItemFooterData = (filterResult) => {
+    return {
+        type: STORED_SUB_ITEM_FOOTER_DATA,
         filterResult
     }
 };

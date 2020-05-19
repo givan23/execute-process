@@ -2,7 +2,7 @@ import {createLogic} from "redux-logic";
 import "babel-polyfill";
 import {NETWORK_CALL_ERROR, RESPONSE_CODE_SUCCESS} from "../../../../Core/Costants/NetworkConstants";
 import {DevtoolSettings} from "../../../../ExecuteProcess/Settings/DevtoolSettings";
-import {chooseChannelList} from "../Utils/SidebarUtils";
+import {filterItemByChannel} from "../Utils/SidebarUtils";
 import {initBarSubItems, storedChannelData, storedToolBarData} from "../Actions/SidebarActions";
 import {INIT_SIDEBAR_DEVTOOL} from "../Constants/SidebarConstants";
 
@@ -21,7 +21,7 @@ const sidebarManager = createLogic({
 
             if (code === RESPONSE_CODE_SUCCESS) {
 
-                let channelData = chooseChannelList(channelList);
+                let channelData = filterItemByChannel(channelList);
                 dispatch(storedChannelData(channelData[0].list || []));
                 dispatch(storedToolBarData(toolBarDetail));
                 dispatch(initBarSubItems());
