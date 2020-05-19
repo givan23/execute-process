@@ -4,14 +4,14 @@ import {createSelector} from "reselect";
 import QuoteLayoutComponent from "../Components/layout/quote/QuoteLayoutComponent";
 
 
-const getSubItemData = (state) => state.devtoolLayoutReducers.subItemData;
+const getStaticData = (state) => state.devtoolLayoutReducers.staticData;
 
 const mapStateToProps = createSelector(
-    [getSubItemData],
-    (subItemData) => {
+    [getStaticData],
+    (staticData) => {
 
         return {
-            snippetData: subItemData
+            snippetData: staticData
         };
     });
 

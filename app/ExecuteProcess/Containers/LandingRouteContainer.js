@@ -5,14 +5,14 @@ import LandingLayoutComponent from "../Components/layout/landing/LandingLayoutCo
 import {initSidebarDevtool} from "../../ExternalModules/devtool-module/Core/Actions/SidebarActions";
 
 
-const getSubItemData = (state) => state.devtoolLayoutReducers.subItemData;
+const getStaticData = (state) => state.devtoolLayoutReducers.staticData;
 const getViewport = (state) => state.devtoolViewportReducers.viewport;
 
 const mapStateToProps = createSelector(
-    [getSubItemData, getViewport],
-    (subItemData, viewport) => {
+    [getStaticData, getViewport],
+    (staticData, viewport) => {
 
-        const [landingCentral = {}, sportList = {}, sportListMobile = {}] = subItemData.subItemList || [];
+        const [landingCentral = {}, sportList = {}, sportListMobile = {}] = staticData.subItemList || [];
 
         return {
             viewport,

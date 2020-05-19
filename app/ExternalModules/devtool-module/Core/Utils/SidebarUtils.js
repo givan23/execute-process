@@ -20,7 +20,8 @@ export const updateStatusDropDown = (channelData, route) => {
 
 //filter for EXACT 'route' and sub-item 'code'. Returns a updated items and sub-items list.
 export const filterByExactRoute = (data, route) => {
-    return data.filter(item => {return item.route === route })
+    let filterData = data.filter(item => {return item.route === route })
+    return filterData[0]
 };
 
 //filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list.

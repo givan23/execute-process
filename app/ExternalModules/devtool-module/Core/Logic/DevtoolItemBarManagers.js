@@ -58,8 +58,8 @@ const managementItemBarManager = createLogic({
                 // at the initialization of the application
                 const headerFilterData = filterByExactRoute(updatedSubItemStatus, HEADER_ROUTE);
                 const footerFilterData = filterByExactRoute(updatedSubItemStatus, FOOTER_ROUTE);
-                dispatch(storedSubItemHeaderData(headerFilterData || []));
-                dispatch(storedSubItemFooterData(footerFilterData || []));
+                dispatch(storedSubItemHeaderData(headerFilterData || {}));
+                dispatch(storedSubItemFooterData(footerFilterData || {}));
                 dispatch(storedNewChannelData(updatedSubItemStatus || []));
 
                 //allows you to correctly update the status of items other than the header and footer ones
@@ -67,7 +67,7 @@ const managementItemBarManager = createLogic({
                     return "";
                 } else {
                     let filteredDataByRoute = filterSubItemList(updatedSubItemStatus, route);
-                    dispatch(storedSubItemFilterData( filteredDataByRoute || []))
+                    dispatch(storedSubItemFilterData( filteredDataByRoute || {}))
                 }
             }
 

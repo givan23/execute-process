@@ -3,7 +3,6 @@ import createReducer from "../../../../Utils/CreateReducerUtils"
 
 const storedSubItemHeaderData = (draft, action) => {
     draft.staticData = action.filterResult;
-    console.log(action.filterResult);
 };
 
 

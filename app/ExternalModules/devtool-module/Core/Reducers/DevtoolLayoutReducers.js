@@ -2,12 +2,12 @@ import createReducer from "../../../../Utils/CreateReducerUtils"
 
 
 const storedSubItemFilterData = (draft, action) => {
-    draft.subItemData = action.filterResult;
+    draft.staticData = action.filterResult;
 };
 
 
 const initState = {
-    subItemData: {},
+    staticData: {},
 };
 
 export default createReducer({
