@@ -5,13 +5,19 @@ import QuoteLayoutComponent from "../Components/layout/quote/QuoteLayoutComponen
 
 
 const getStaticData = (state) => state.devtoolLayoutReducers.staticData;
+const getViewport = (state) => state.devtoolViewportReducers.viewport;
 
 const mapStateToProps = createSelector(
-    [getStaticData],
-    (staticData) => {
+    [getStaticData, getViewport],
+    (staticData, viewport) => {
+
+        const [quoteCentral = {}, sportList = {}, sportListMobile = {}] = staticData.subItemList || [];
 
         return {
-            snippetData: staticData
+            viewport,
+            quoteCentral,
+            sportList,
+            sportListMobile
         };
     });
 

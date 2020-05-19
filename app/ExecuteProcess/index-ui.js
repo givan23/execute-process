@@ -1,23 +1,17 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import {store, history } from '../Store/CreateStore';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'connected-react-router';
+import {store, history} from '../Store/CreateStore';
 
 import {
-    CENTRAL_CONTENT_SELECTOR, DEVTOOL_SELECTOR,
-    FOOTER_SELECTOR,
-    HEADER_SELECTOR, SEARCH_BAR_SELECTOR
+    CENTRAL_CONTENT_SELECTOR, DEVTOOL_SELECTOR, FOOTER_SELECTOR, HEADER_SELECTOR, SEARCH_BAR_SELECTOR
 } from "../ExternalModules/common-module/Constants/SelectorConstants";
 import {
-    BOX_MESSAGE_GREEN,
-    BOX_MESSAGE_RED,
-    CENTRAL_SELECTOR_LOADED,
-    CENTRAL_SELECTOR_NOT_LOADED, DEVTOOL_LOADED, DEVTOOL_NOT_LOADED, FOOTER_SELECTOR_LOADED, FOOTER_SELECTOR_NOT_LOADED,
-    HEADER_SELECTOR_LOADED,
-    HEADER_SELECTOR_NOT_LOADED,
-    NAVBAR_SELECTOR_LOADED,
-    NAVBAR_SELECTOR_NOT_LOADED
+    BOX_MESSAGE_GREEN, BOX_MESSAGE_RED, CENTRAL_SELECTOR_LOADED,
+    CENTRAL_SELECTOR_NOT_LOADED, DEVTOOL_LOADED, DEVTOOL_NOT_LOADED,
+    FOOTER_SELECTOR_LOADED, FOOTER_SELECTOR_NOT_LOADED, HEADER_SELECTOR_LOADED,
+    HEADER_SELECTOR_NOT_LOADED, NAVBAR_SELECTOR_LOADED, NAVBAR_SELECTOR_NOT_LOADED
 } from "../ExternalModules/common-module/Constants/ConsoleMessage";
 
 import {initResizeWindow} from "./Utils/ResizeUtils";
@@ -27,7 +21,6 @@ import SearchBarStaticContainer from "../ExternalModules/common-module/Container
 import RoutingStaticCentralContent from "./Rooting/RoutingCentralContentUi";
 import DevtoolLayoutContainer from "../ExternalModules/devtool-module/Containers/DevtoolLayoutContainer";
 import FooterStaticContainer from "../ExternalModules/common-module/Containers/FooterStaticContainer";
-
 
 
 export const renderStaticHeader = store => {
@@ -105,9 +98,7 @@ export const renderDevtool = (store) => {
             clearInterval(interval);
             render(
                 <Provider store={store}>
-                    <ConnectedRouter history={history}>
-                        <DevtoolLayoutContainer/>
-                    </ConnectedRouter>
+                    <DevtoolLayoutContainer/>
                 </Provider>,
                 centralContentWrapper
             );
@@ -138,7 +129,6 @@ export const renderStaticFooter = store => {
         }
     }, 500)
 };
-
 
 
 initResizeWindow(store);

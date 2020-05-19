@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import FooterStaticComponent from "../Components/layout/footer/FooterStaticComponent";
 
+
 const getStaticDataFooter = (state) => state.footerStaticReducers.staticData;
 const getViewport = (state) => state.devtoolViewportReducers.viewport;
 

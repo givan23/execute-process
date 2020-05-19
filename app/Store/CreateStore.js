@@ -1,4 +1,4 @@
-import {createBrowserHistory} from 'history';
+import {createHashHistory} from 'history';
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import {connectRouter, routerMiddleware} from 'connected-react-router';
 import {createLogicMiddleware} from "redux-logic";
@@ -7,7 +7,7 @@ import * as axios from "axios";
 import reducers from "./Reducers";
 
 //HISTORY
-const history = createBrowserHistory({hashType: "hashbang"});
+const history = createHashHistory({hashType: "hashbang"});
 
 
 //COMBINE REDUCERS

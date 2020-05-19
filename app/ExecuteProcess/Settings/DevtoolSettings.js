@@ -66,15 +66,23 @@ export const DevtoolSettings = {
                         subItemList: [
                             {
                                 code: 1,
-                                subItemTitle: "item1",
+                                subItemTitle: "quoteCentral",
                                 viewport: "desktop",
                                 status: true
                             },
                             {
                                 code: 2,
-                                subItemTitle: "item2",
-                                viewport: "responsive",
+                                subItemTitle: "sportList",
+                                viewport: "desktop",
                                 status: true
+
+                            },
+                            {
+                                code: 3,
+                                subItemTitle: "sportListMobile",
+                                viewport: "mobile",
+                                status: true
+
                             },
                         ]
                     },
