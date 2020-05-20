@@ -9,7 +9,7 @@ import {
 } from "../Constants/SidebarConstants";
 import {
     filterByExactRoute,
-    filterSubItemList, getStatusRoute,
+    filterSubItemList,
     goToPath,
     updateStatusDropDown,
     updateStatusSubItem
@@ -42,7 +42,6 @@ const managementItemBarManager = createLogic({
                 //go devtool
                 let newChannelData = updateStatusDropDown(channelData, route);
                 dispatch(storedNewChannelData(newChannelData || []));
-
             }
 
             if (channelData && action.type === TOGGLE_SUB_ITEM || channelData && action.type === INIT_BAR_SUB_ITEMS) {
@@ -51,7 +50,7 @@ const managementItemBarManager = createLogic({
 
                 // go devtool
                 let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
-
+                console.log("updatedSubItemStatus ", updatedSubItemStatus);
                 // go layout
                 // These filters guarantee the consistency of the data in the specific reducers
                 // at the initialization of the application

@@ -14,6 +14,14 @@ export const STORED_SUB_ITEM_FILTER_DATA = "STORED_SUB_ITEM_FILTER_DATA";
 export const STORED_SUB_ITEM_HEADER_DATA = "STORED_SUB_ITEM_HEADER_DATA";
 export const STORED_SUB_ITEM_FOOTER_DATA = "STORED_SUB_ITEM_FOOTER_DATA";
 
+export const ON_CHANNEL_DEV_DETAIL = "ON_CHANNEL_DEV_DETAIL";
+
+//channels
+export const STATIC_CHANNEL="STATIC";
+export const DYNAMIC_CHANNEL="DYNAMIC";
+export const THEME_CHANNEL= "THEME";
+export const GAME_CHANNEL= "GAME";
+
 //routes list
 export const HEADER_ROUTE = "/header";
 export const FOOTER_ROUTE = "/footer";

@@ -4,18 +4,26 @@ export const DevtoolSettings = {
         toolBarDetail: {
             buttonList: [
                 {
-                    btnCode: 1,
-                    iconPath: "icon-1.png"
+                    btnCode: "STATIC",
+                    iconPath: "static-icon.png"
                 },
                 {
-                    btnCode: 2,
-                    iconPath: "icon-2.png"
+                    btnCode: "DYNAMIC",
+                    iconPath: "dynamic-icon.png"
+                },
+                {
+                    btnCode: "THEME",
+                    iconPath: "theme-icon.png"
+                },
+                {
+                    btnCode: "GAME",
+                    iconPath: "game-icon.png"
                 }
             ]
         },
         channelList: [
             {
-                channel: "URL",
+                channel: "STATIC",
                 list: [
                     {
                         routeTitle: "HEADER",
@@ -102,8 +110,24 @@ export const DevtoolSettings = {
                 ],
             },
             {
-                channel: "TOOLS",
-                list: []
+                channel: "THEME",
+                list: [
+                    {
+                        theme: "BLACK"
+                    },
+                    {
+                        theme: "WHITE"
+                    }
+                ]
+            },
+            {
+                channel: "GAME",
+                list: [
+                    {
+                        gameTitle: "Space Invaders",
+                        iframeUrl: "/#"
+                    }
+                ]
             }
         ]
     }

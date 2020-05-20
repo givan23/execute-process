@@ -1,6 +1,14 @@
 import {createLogic} from "redux-logic";
-import {DYNAMIC_BASE_URL, ON_CLICK_TOOL} from "../Constants/SidebarConstants";
+import {
+    DYNAMIC_BASE_URL,
+    DYNAMIC_CHANNEL,
+    GAME_CHANNEL,
+    ON_CLICK_TOOL,
+    STATIC_CHANNEL,
+    THEME_CHANNEL
+} from "../Constants/SidebarConstants";
 import {goToPath} from "../Utils/SidebarUtils";
+import {onChannelDevDetail} from "../Actions/SidebarActions";
 
 
 const devtoolToolbarManager = createLogic({
@@ -9,27 +17,21 @@ const devtoolToolbarManager = createLogic({
     process({action, getState}, dispatch, done) {
 
         try {
-            const {btnCode = 0} = action;
+            const {btnCode = "STATIC"} = action;
 
-            if (btnCode !== 0) {
+               let channelStatus =  {
+                    [STATIC_CHANNEL]: () => dispatch(onChannelDevDetail(btnCode)),
+                    [DYNAMIC_CHANNEL]: () => goToPath(DYNAMIC_BASE_URL, ""),
+                    [THEME_CHANNEL]: () => dispatch(onChannelDevDetail(btnCode)),
+                    [GAME_CHANNEL]: () => dispatch(onChannelDevDetail(btnCode))
+                };
 
-                if (btnCode === 1) {
-
-                    goToPath(DYNAMIC_BASE_URL, "");
-
-                } else if (btnCode === 2) {
-
-                    console.log("click theme btn");
-
-                }
-
-            } else return console.log("error onClick toolbar data!");
+                console.log(channelStatus[btnCode]());
 
 
         } catch (error) {
             console.log("generic exception in ManagementBarManages ", error);
         }
-
         done();
     }
 });

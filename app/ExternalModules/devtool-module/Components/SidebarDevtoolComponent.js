@@ -17,6 +17,10 @@ const SidebarDevtoolComponent = ({
                               toggleCloseFullSidebar
                           }) => {
 
+
+
+    const channel = "games";
+    console.log("channelData: ", channelData);
     return <div className="devtool">
 
         <ButtonCloseFullComponent isCloseFull={isCloseFull} toggleCloseFullSidebar={toggleCloseFullSidebar}/>
@@ -29,10 +33,13 @@ const SidebarDevtoolComponent = ({
                                          toggleCloseSidebar={toggleCloseSidebar}
                                          onClickTool={onClickTool}/>
 
+                {channel !== "STATIC" ?
                 <ItembarDevtoolComponent channelData={channelData}
                                          viewport={viewport}
                                          toggleItem={toggleItem}
                                          toggleSubItem={toggleSubItem}/>
+                : <GameEmbeddedComponent/>
+                }
 
             </div>
         </div>
@@ -43,4 +50,8 @@ const SidebarDevtoolComponent = ({
 export default SidebarDevtoolComponent;
 
 
+const GameEmbeddedComponent = () => {
+
+    return <div>games</div>
+};
 

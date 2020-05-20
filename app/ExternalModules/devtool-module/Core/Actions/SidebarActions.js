@@ -1,6 +1,6 @@
 import {
     INIT_BAR_SUB_ITEMS,
-    INIT_SIDEBAR_DEVTOOL,
+    INIT_SIDEBAR_DEVTOOL, ON_CHANNEL_DEV_DETAIL,
     ON_CLICK_TOOL,
     STORED_CHANNEL_DATA,
     STORED_NEW_CHANNEL_DATA,
@@ -58,6 +58,13 @@ export const storedToolBarData = (toolBarData) => {
 export const onClickTool = (btnCode) => {
     return {
         type: ON_CLICK_TOOL,
+        btnCode
+    }
+};
+
+export const onChannelDevDetail = (btnCode) => {
+    return {
+        type: ON_CHANNEL_DEV_DETAIL,
         btnCode
     }
 };
