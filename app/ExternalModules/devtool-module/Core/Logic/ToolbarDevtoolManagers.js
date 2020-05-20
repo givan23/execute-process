@@ -11,7 +11,7 @@ import {goToPath} from "../Utils/SidebarUtils";
 import {onChannelDevDetail} from "../Actions/SidebarActions";
 
 
-const devtoolToolbarManager = createLogic({
+const toolbarDevtoolManager = createLogic({
     type: [ON_CLICK_TOOL],
 
     process({action, getState}, dispatch, done) {
@@ -26,7 +26,7 @@ const devtoolToolbarManager = createLogic({
                     [GAME_CHANNEL]: () => dispatch(onChannelDevDetail(btnCode))
                 };
 
-                console.log(channelStatus[btnCode]());
+                channelStatus[btnCode]()
 
 
         } catch (error) {
@@ -36,5 +36,5 @@ const devtoolToolbarManager = createLogic({
     }
 });
 
-export const DevtoolToolbarManagers = [devtoolToolbarManager];
+export const ToolbarDevtoolManagers = [toolbarDevtoolManager];
 

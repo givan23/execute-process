@@ -19,9 +19,10 @@ export default {
     footerReducer,
 
     //DEVTOOL
+    viewportDevtoolReducers,
     sidebarDevtoolReducers,
     staticDevtoolReducers,
-    viewportDevtoolReducers,
+
 
     //COMMON
     headerStaticReducers,

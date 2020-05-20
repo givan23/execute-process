@@ -7,11 +7,8 @@ import {FooterManagers} from "../Core/Logic/footer/FooterManagers";
 import {InitDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/InitDevtoolManagers";
 import {ViewportDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ViewportDevtoolManagers";
 import {SidebarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/SidebarDevtoolManagers";
-import {DevtoolToolbarManagers} from "../ExternalModules/devtool-module/Core/Logic/ToolbarDevtoolManagers";
+import {ToolbarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ToolbarDevtoolManagers";
 import {ItembarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ItembarDevtoolManagers";
-
-
-
 
 
 const managers = [
@@ -25,9 +22,9 @@ const managers = [
     ...InitDevtoolManagers,
     ...ViewportDevtoolManagers,
     ...SidebarDevtoolManagers,
-    ...DevtoolToolbarManagers,
+    ...ToolbarDevtoolManagers,
     ...ItembarDevtoolManagers
-    //%InsertManager%
+     //%InsertManager%
 ];
 
 export default managers;

@@ -50,7 +50,6 @@ const managementItemBarManager = createLogic({
 
                 // go devtool
                 let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
-                console.log("updatedSubItemStatus ", updatedSubItemStatus);
                 // go layout
                 // These filters guarantee the consistency of the data in the specific reducers
                 // at the initialization of the application

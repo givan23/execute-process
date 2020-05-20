@@ -10,15 +10,23 @@ import {
 } from "../Core/Actions/SidebarActions";
 import SidebarDevtoolComponent from "../Components/SidebarDevtoolComponent";
 
+
+const getViewport = (state) => state.viewportDevtoolReducers.viewport;
 const getIsClose = (state) => state.sidebarDevtoolReducers.isClose;
 const getIsCloseFull = (state) => state.sidebarDevtoolReducers.isCloseFull;
 const getChannelData = (state) => state.sidebarDevtoolReducers.channelData;
 const getToolBarData = (state) => state.sidebarDevtoolReducers.toolBarData;
-const getViewport = (state) => state.viewportDevtoolReducers.viewport;
+const getChannelThemeData = (state) => state.sidebarDevtoolReducers.channelThemeData;
+const getChannelGameData = (state) => state.sidebarDevtoolReducers.channelGameData;
+const getBtnCode = (state) => state.sidebarDevtoolReducers.btnCode;
+
 
 const mapStateToProps = createSelector(
-    [getIsClose, getIsCloseFull, getChannelData, getToolBarData, getViewport],
-    (isClose, isCloseFull, channelData, toolBarData, viewport) => {
+    [getIsClose, getIsCloseFull, getChannelData, getToolBarData, getViewport,
+              getChannelThemeData, getChannelGameData, getBtnCode],
+    (isClose, isCloseFull, channelData, toolBarData, viewport,
+               channelThemeData, channelGameData, btnCode) => {
+
 
         const {buttonList = []} = toolBarData;
 
@@ -27,7 +35,10 @@ const mapStateToProps = createSelector(
             channelData,
             buttonList,
             isClose,
-            isCloseFull
+            isCloseFull,
+            channelThemeData,
+            channelGameData,
+            btnCode
 
         };
     });

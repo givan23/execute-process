@@ -2,11 +2,11 @@ import {
     INIT_BAR_SUB_ITEMS,
     INIT_SIDEBAR_DEVTOOL, ON_CHANNEL_DEV_DETAIL,
     ON_CLICK_TOOL,
-    STORED_CHANNEL_DATA,
+    STORED_CHANNEL_DATA, STORED_GAME_DATA,
     STORED_NEW_CHANNEL_DATA,
     STORED_SUB_ITEM_FILTER_DATA,
     STORED_SUB_ITEM_FOOTER_DATA,
-    STORED_SUB_ITEM_HEADER_DATA,
+    STORED_SUB_ITEM_HEADER_DATA, STORED_THEME_DATA,
     STORED_TOOL_BAR_DATA, TOGGLE_CLOSE_FULL_SIDEBAR, TOGGLE_CLOSE_SIDEBAR,
     TOGGLE_ITEM,
     TOGGLE_SUB_ITEM
@@ -27,10 +27,27 @@ export const initBarSubItems = () => {
 };
 
 
-export const storedChannelData = (result) => {
+export const storedChannelData = (result, btnCode) => {
     return {
         type: STORED_CHANNEL_DATA,
-        result
+        result,
+        btnCode
+    }
+};
+
+export const storedThemeData = (result, btnCode) => {
+    return {
+        type: STORED_THEME_DATA,
+        result,
+        btnCode
+    }
+};
+
+export const storedGameData = (result, btnCode) => {
+    return {
+        type: STORED_GAME_DATA,
+        result,
+        btnCode
     }
 };
 
