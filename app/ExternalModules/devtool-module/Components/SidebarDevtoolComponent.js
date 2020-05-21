@@ -6,6 +6,7 @@ import {GAME_CHANNEL, STATIC_CHANNEL, THEME_CHANNEL} from "../Core/Constants/Sid
 
 
 const SidebarDevtoolComponent = ({
+                                     theme = "",
                                      viewport,
                                      channelData = [],
                                      channelThemeData = [],
@@ -21,9 +22,7 @@ const SidebarDevtoolComponent = ({
                                      toggleCloseFullSidebar
                                  }) => {
 
-    const {list = []} = channelThemeData[0] || {};
-    const {theme = "blue"} = list[1] || {};
-
+    console.log("theme: ", theme);
 
 
     return <div className="devtool">
@@ -53,22 +52,19 @@ const SidebarDevtoolComponent = ({
 export default SidebarDevtoolComponent;
 
 
-const SwitchChannelItem = ({viewport, channelData, channelThemeData, channelGameData, btnCode, toggleItem, toggleSubItem}) => {
+const SwitchChannelItem = ({theme, viewport, channelData, channelThemeData, channelGameData, btnCode, toggleItem, toggleSubItem}) => {
 
     let channelStatus = {
-        [STATIC_CHANNEL]: <ItembarDevtoolComponent channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
-        [THEME_CHANNEL]: <ItembarDevtoolComponent channelData={channelThemeData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
-        [GAME_CHANNEL]: <GameComponent channelGameData={channelGameData}/>
+        [STATIC_CHANNEL]: <ItembarDevtoolComponent btnCode={btnCode} channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
+        [THEME_CHANNEL]: <ItembarDevtoolComponent btnCode={btnCode} channelData={channelThemeData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
+        [GAME_CHANNEL]: <GameComponent theme={theme} channelGameData={channelGameData}/>
     };
 
     return channelStatus[btnCode];
 
 };
 
-// const ThemeComponent = ({channelThemeData, theme}) => {
-//     return <div className={"theme-" + theme}>theme component</div>
-// };
 
-const GameComponent = ({channelGameData}) => {
-    return <div >games component</div>
+const GameComponent = ({channelGameData, theme}) => {
+    return <div className={"theme-" + theme}>games component</div>
 };

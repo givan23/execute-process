@@ -3,8 +3,7 @@ import "babel-polyfill";
 import {INIT_BAR_SUB_ITEMS, TOGGLE_ITEM, TOGGLE_SUB_ITEM} from "../Constants/SidebarConstants";
 import {
     getThemeFromThemeList,
-    updateStatusDropDown,
-    updateStatusSubItem,
+    updateStatusThemeDropDown,
     updateStatusThemeSubItem
 } from "../Utils/SidebarUtils";
 import {storedChannelThemeItem, storedTheme} from "../Actions/ThemeDevtoolActions";
@@ -22,7 +21,7 @@ const themeDevtoolManager = createLogic({
             if (channelThemeData && action.type === TOGGLE_ITEM) {
 
                 //go devtool
-                const channelThemeItem = updateStatusDropDown(channelThemeData, route);
+                const channelThemeItem = updateStatusThemeDropDown(channelThemeData, route);
                 dispatch(storedChannelThemeItem(channelThemeItem || []));
 
             }
@@ -31,7 +30,6 @@ const themeDevtoolManager = createLogic({
                 // go devtool
                 const updatedSubItemStatus = updateStatusThemeSubItem(channelThemeData, route, code);
                 const theme = getThemeFromThemeList(updatedSubItemStatus);
-console.log("theme: ", theme);
                 dispatch(storedTheme(theme || []));
                 dispatch(storedChannelThemeItem(updatedSubItemStatus || []));
 

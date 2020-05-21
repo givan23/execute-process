@@ -46,40 +46,73 @@ export const updateStatusSubItem = (channelData, route, code) => {
 };
 
 // X THEME
-//filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list. on/off functionality.
-export const updateStatusThemeSubItem = (channelData, route, code) => {
+//filter for 'route' and returns an list updated of all items and sub-items of all routes.
+export const updateStatusThemeDropDown = (channelData, route) => {
+    //change all items at false status.
+    let resetItem = channelData.map(item => {
+        return {...item, selected: false};
+    });
 
-    return channelData.map(item => {
+    // update item status from click.
+    let updateStatusItem = resetItem.map(item => {
+        return item.route === route ? {...item, selected: !item.selected} : {...item, selected: false};
+    });
+
+    // set initial state of the subItem. First item at true and rest at false.
+    return updateStatusItem.map((item) => {
             return item.route === route ?
                 {
                     ...item,
-                    subItemList: item.subItemList.map((sub) => {
-                        return sub.code === code ?
-                            {
-                            ...sub,
-                            status: !sub.status
-                            } : sub.status === true ?
-                                {
-                                    ...sub,
-                                    status: !sub.status
-                                } : sub;
+                    subItemList: item.subItemList.map((sub,i) => {
+                        return i === 0 ? {...sub, status: true} : {...sub, status: false};
                     })
                 }
                 : item;
         }
     );
+
 };
 
+// X THEME
+//filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list. on/off functionality.
+export const updateStatusThemeSubItem = (channelData, route, code) => {
+    //change all sub-items at false status.
+    let resetSubItem =  channelData.map(item => {
+        return item.route === route ?
+            {
+                ...item,
+                subItemList: item.subItemList.map((sub) => {
+                    return {
+                        ...sub,
+                        status: false
+                    }
+                })
+            }
+            : item;
+    });
+    // update item status from click.
+   return resetSubItem.map(item => {
+            return item.route === route ?
+                {
+                    ...item,
+                    subItemList: item.subItemList.map((sub) => {
+                        return sub.code === code ? {...sub, status: !sub.status} : sub;
+                    })
+                }
+                : item;
+        }
+    );
+
+};
+
+// X THEME
 // find theme from theme list
 export const getThemeFromThemeList = (themeList) => {
+    const {subItemList = []} = themeList[0] || {};
+    // find the state at true and return the theme.
+    const {subItemTitle = "blue"} = subItemList.filter(theme => {
+        return theme.status === true ? theme : null; })[0] || {};
 
-    const {list = []} = themeList[0] || {};
-    const {subItemList = []} = list[0] || {};
-console.log("subItemList: ",subItemList);
-    let theme = subItemList.filter(theme => {
-        return theme.status === true ? theme : null;
-    });
-    const {subItemTitle = "blue"} = theme[0] || {}
     return subItemTitle;
 };
 

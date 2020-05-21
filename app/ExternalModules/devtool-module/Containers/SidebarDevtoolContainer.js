@@ -30,10 +30,8 @@ const mapStateToProps = createSelector(
     (isClose, isCloseFull, channelData, toolBarData, viewport,
                channelThemeData, theme, channelGameData, btnCode) => {
 
-
         const {buttonList = []} = toolBarData;
 
-        console.log("theme: ", theme);
         return {
             viewport,
             channelData,

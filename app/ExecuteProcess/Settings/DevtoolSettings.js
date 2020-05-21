@@ -115,7 +115,7 @@ export const DevtoolSettings = {
                     {
                         routeTitle: "THEME",
                         route: "/theme",
-                        selected: true,
+                        selected: false,
                         subItemList: [
                             {
                                 code: 1,
