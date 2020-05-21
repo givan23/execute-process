@@ -1,5 +1,10 @@
+
 export const goToPath = (baseUrl, route) => {
     return route === "/header" || route === "/footer"? "" : window.location.href = baseUrl + route;
+};
+
+export const checkRoutes = (route) => {
+    return route !== "/theme";
 };
 
 // filter for 'channel'
@@ -30,7 +35,6 @@ export const updateStatusSubItem = (channelData, route, code) => {
     return channelData.map(item => {
             return item.route === route ?
                 {
-                    channel: "STATIC",
                     ...item,
                     subItemList: item.subItemList.map((sub) => {
                         return sub.code === code ? {...sub, status: !sub.status} : sub;
@@ -40,6 +44,47 @@ export const updateStatusSubItem = (channelData, route, code) => {
         }
     );
 };
+
+// X THEME
+//filter for 'route' and sub-item 'code'. Returns a updated items and sub-items list. on/off functionality.
+export const updateStatusThemeSubItem = (channelData, route, code) => {
+
+    return channelData.map(item => {
+            return item.route === route ?
+                {
+                    ...item,
+                    subItemList: item.subItemList.map((sub) => {
+                        return sub.code === code ?
+                            {
+                            ...sub,
+                            status: !sub.status
+                            } : sub.status === true ?
+                                {
+                                    ...sub,
+                                    status: !sub.status
+                                } : sub;
+                    })
+                }
+                : item;
+        }
+    );
+};
+
+// find theme from theme list
+export const getThemeFromThemeList = (themeList) => {
+
+    const {list = []} = themeList[0] || {};
+    const {subItemList = []} = list[0] || {};
+console.log("subItemList: ",subItemList);
+    let theme = subItemList.filter(theme => {
+        return theme.status === true ? theme : null;
+    });
+    const {subItemTitle = "blue"} = theme[0] || {}
+    return subItemTitle;
+};
+
+
+
 
 // filter for 'route' selected. Return an item with a sub-items list.
 export const filterSubItemList = (newChannelData, route) => {

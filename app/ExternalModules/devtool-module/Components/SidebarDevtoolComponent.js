@@ -21,6 +21,10 @@ const SidebarDevtoolComponent = ({
                                      toggleCloseFullSidebar
                                  }) => {
 
+    const {list = []} = channelThemeData[0] || {};
+    const {theme = "blue"} = list[1] || {};
+
+
 
     return <div className="devtool">
 
@@ -37,7 +41,7 @@ const SidebarDevtoolComponent = ({
 
                 <SwitchChannelItem viewport={viewport} channelData={channelData} btnCode={btnCode}
                                    channelThemeData={channelThemeData} channelGameData={channelGameData}
-                                   toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>
+                                   toggleItem={toggleItem} toggleSubItem={toggleSubItem} theme={theme}/>
 
 
             </div>
@@ -53,18 +57,18 @@ const SwitchChannelItem = ({viewport, channelData, channelThemeData, channelGame
 
     let channelStatus = {
         [STATIC_CHANNEL]: <ItembarDevtoolComponent channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
-        [THEME_CHANNEL]: <ThemeComponent channelThemeData={channelThemeData}/>,
+        [THEME_CHANNEL]: <ItembarDevtoolComponent channelData={channelThemeData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
         [GAME_CHANNEL]: <GameComponent channelGameData={channelGameData}/>
     };
 
-    return channelStatus[btnCode]
+    return channelStatus[btnCode];
 
 };
 
-const ThemeComponent = ({channelThemeData}) => {
-    return <div>theme component</div>
-};
+// const ThemeComponent = ({channelThemeData, theme}) => {
+//     return <div className={"theme-" + theme}>theme component</div>
+// };
 
 const GameComponent = ({channelGameData}) => {
-    return <div>games component</div>
+    return <div >games component</div>
 };

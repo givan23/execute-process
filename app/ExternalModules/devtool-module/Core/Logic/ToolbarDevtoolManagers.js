@@ -8,7 +8,8 @@ import {
     THEME_CHANNEL
 } from "../Constants/SidebarConstants";
 import {goToPath} from "../Utils/SidebarUtils";
-import {onChannelDevDetail} from "../Actions/SidebarActions";
+import {onChannelDevDetail} from "../Actions/ToolbarActions";
+
 
 
 const toolbarDevtoolManager = createLogic({

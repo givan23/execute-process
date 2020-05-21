@@ -1,16 +1,18 @@
 import {
     INIT_BAR_SUB_ITEMS,
-    INIT_SIDEBAR_DEVTOOL, ON_CHANNEL_DEV_DETAIL,
-    ON_CLICK_TOOL,
-    STORED_CHANNEL_DATA, STORED_GAME_DATA,
+    INIT_SIDEBAR_DEVTOOL,
+    STORED_CHANNEL_DATA,
     STORED_NEW_CHANNEL_DATA,
     STORED_SUB_ITEM_FILTER_DATA,
     STORED_SUB_ITEM_FOOTER_DATA,
-    STORED_SUB_ITEM_HEADER_DATA, STORED_THEME_DATA,
-    STORED_TOOL_BAR_DATA, TOGGLE_CLOSE_FULL_SIDEBAR, TOGGLE_CLOSE_SIDEBAR,
+    STORED_SUB_ITEM_HEADER_DATA,
+    TOGGLE_CLOSE_FULL_SIDEBAR,
+    TOGGLE_CLOSE_SIDEBAR,
     TOGGLE_ITEM,
     TOGGLE_SUB_ITEM
 } from "../Constants/SidebarConstants";
+import {STORED_THEME_DATA} from "../Constants/ThemeDevtoolConstants";
+import {STORED_GAME_DATA} from "../Constants/GameDevtoolConstats";
 
 //INIT
 export const initSidebarDevtool = () => {
@@ -64,27 +66,7 @@ export const toggleCloseFullSidebar = () => {
 };
 
 
-//MANAGEMENT TOOLS BAR
-export const storedToolBarData = (toolBarData) => {
-    return {
-        type: STORED_TOOL_BAR_DATA,
-        toolBarData
-    }
-};
 
-export const onClickTool = (btnCode) => {
-    return {
-        type: ON_CLICK_TOOL,
-        btnCode
-    }
-};
-
-export const onChannelDevDetail = (btnCode) => {
-    return {
-        type: ON_CHANNEL_DEV_DETAIL,
-        btnCode
-    }
-};
 
 //MANAGEMENT ITEM BAR
 export const toggleItem = (route) => {

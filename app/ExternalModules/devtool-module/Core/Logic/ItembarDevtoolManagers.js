@@ -8,6 +8,7 @@ import {
     TOGGLE_SUB_ITEM
 } from "../Constants/SidebarConstants";
 import {
+    checkRoutes,
     filterByExactRoute,
     filterSubItemList,
     goToPath,
@@ -20,6 +21,7 @@ import {
     storedSubItemFooterData,
     storedSubItemHeaderData
 } from "../Actions/SidebarActions";
+import staticDevtoolReducers from "../Reducers/StaticDevtoolReducers";
 
 
 const managementItemBarManager = createLogic({
@@ -29,44 +31,46 @@ const managementItemBarManager = createLogic({
 
         try {
 
-            const {channelData = []} = getState().sidebarDevtoolReducers;
+            const {channelData = []} = getState().staticDevtoolReducers;
+            const {route = "/", code = 2} = action;
 
-            if (channelData && action.type === TOGGLE_ITEM) {
+            if (checkRoutes(route)) {
 
-                const {route = "/"} = action;
+                if (channelData && action.type === TOGGLE_ITEM) {
 
-                //change path
-                goToPath(STATIC_BASE_URL, route);
+                    //change path
+                    goToPath(STATIC_BASE_URL, route);
 
 
-                //go devtool
-                let newChannelData = updateStatusDropDown(channelData, route);
-                dispatch(storedNewChannelData(newChannelData || []));
-            }
-
-            if (channelData && action.type === TOGGLE_SUB_ITEM || channelData && action.type === INIT_BAR_SUB_ITEMS) {
-
-                const {route = "/", code = 2} = action;
-
-                // go devtool
-                let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
-                // go layout
-                // These filters guarantee the consistency of the data in the specific reducers
-                // at the initialization of the application
-                const headerFilterData = filterByExactRoute(updatedSubItemStatus, HEADER_ROUTE);
-                const footerFilterData = filterByExactRoute(updatedSubItemStatus, FOOTER_ROUTE);
-                dispatch(storedSubItemHeaderData(headerFilterData || {}));
-                dispatch(storedSubItemFooterData(footerFilterData || {}));
-                dispatch(storedNewChannelData(updatedSubItemStatus || []));
-
-                //allows you to correctly update the status of items other than the header and footer ones
-                if(route === HEADER_ROUTE || route === FOOTER_ROUTE){
-                    return "";
-                } else {
-                    let filteredDataByRoute = filterSubItemList(updatedSubItemStatus, route);
-                    dispatch(storedSubItemFilterData( filteredDataByRoute || {}))
+                    //go devtool
+                    let newChannelData = updateStatusDropDown(channelData, route);
+                    dispatch(storedNewChannelData(newChannelData || []));
                 }
-            }
+
+                if (channelData && action.type === TOGGLE_SUB_ITEM || channelData && action.type === INIT_BAR_SUB_ITEMS) {
+
+                    // go devtool
+                    let updatedSubItemStatus = updateStatusSubItem(channelData, route, code);
+
+                    // go layout
+                    // These filters guarantee the consistency of the data in the specific reducers
+                    // at the initialization of the application
+                    const headerFilterData = filterByExactRoute(updatedSubItemStatus, HEADER_ROUTE);
+                    const footerFilterData = filterByExactRoute(updatedSubItemStatus, FOOTER_ROUTE);
+                    dispatch(storedSubItemHeaderData(headerFilterData || {}));
+                    dispatch(storedSubItemFooterData(footerFilterData || {}));
+                    dispatch(storedNewChannelData(updatedSubItemStatus || []));
+
+                    //allows you to correctly update the status of items other than the header and footer ones
+                    if (route === HEADER_ROUTE || route === FOOTER_ROUTE) {
+                        return "";
+                    } else {
+                        let filteredDataByRoute = filterSubItemList(updatedSubItemStatus, route);
+                        dispatch(storedSubItemFilterData(filteredDataByRoute || {}))
+                    }
+                }
+
+            } else return console.log("eccomi!")
 
         } catch (error) {
             console.log("generic exception in ManagementBarManages ", error);
@@ -77,4 +81,6 @@ const managementItemBarManager = createLogic({
 });
 
 export const ItembarDevtoolManagers = [managementItemBarManager];
+
+
 

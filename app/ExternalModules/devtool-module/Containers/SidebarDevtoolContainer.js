@@ -2,34 +2,38 @@ import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import {
-    onClickTool,
+
     toggleCloseFullSidebar,
     toggleCloseSidebar,
     toggleItem,
     toggleSubItem
 } from "../Core/Actions/SidebarActions";
 import SidebarDevtoolComponent from "../Components/SidebarDevtoolComponent";
+import {onClickTool} from "../Core/Actions/ToolbarActions";
 
 
 const getViewport = (state) => state.viewportDevtoolReducers.viewport;
 const getIsClose = (state) => state.sidebarDevtoolReducers.isClose;
 const getIsCloseFull = (state) => state.sidebarDevtoolReducers.isCloseFull;
-const getChannelData = (state) => state.sidebarDevtoolReducers.channelData;
-const getToolBarData = (state) => state.sidebarDevtoolReducers.toolBarData;
-const getChannelThemeData = (state) => state.sidebarDevtoolReducers.channelThemeData;
-const getChannelGameData = (state) => state.sidebarDevtoolReducers.channelGameData;
-const getBtnCode = (state) => state.sidebarDevtoolReducers.btnCode;
+const getChannelData = (state) => state.staticDevtoolReducers.channelData;
+const getToolBarData = (state) => state.toolbarDevtoolReducers.toolBarData;
+const getBtnCode = (state) => state.toolbarDevtoolReducers.btnCode;
+const getTheme = (state) => state.themeDevtoolReducers.theme;
+const getChannelThemeData = (state) => state.themeDevtoolReducers.channelThemeData;
+const getChannelGameData = (state) => state.gameDevtoolReducers.channelGameData;
+
 
 
 const mapStateToProps = createSelector(
     [getIsClose, getIsCloseFull, getChannelData, getToolBarData, getViewport,
-              getChannelThemeData, getChannelGameData, getBtnCode],
+              getChannelThemeData, getTheme, getChannelGameData, getBtnCode],
     (isClose, isCloseFull, channelData, toolBarData, viewport,
-               channelThemeData, channelGameData, btnCode) => {
+               channelThemeData, theme, channelGameData, btnCode) => {
 
 
         const {buttonList = []} = toolBarData;
 
+        console.log("theme: ", theme);
         return {
             viewport,
             channelData,
@@ -38,8 +42,8 @@ const mapStateToProps = createSelector(
             isCloseFull,
             channelThemeData,
             channelGameData,
-            btnCode
-
+            btnCode,
+            theme
         };
     });
 
@@ -66,3 +70,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidebarDevtoolComponent);
+

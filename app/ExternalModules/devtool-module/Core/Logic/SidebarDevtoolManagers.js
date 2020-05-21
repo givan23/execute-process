@@ -2,22 +2,21 @@ import {createLogic} from "redux-logic";
 import "babel-polyfill";
 import {NETWORK_CALL_ERROR, RESPONSE_CODE_SUCCESS} from "../../../../Core/Costants/NetworkConstants";
 import {DevtoolSettings} from "../../../../ExecuteProcess/Settings/DevtoolSettings";
-import {filterItemByChannel, goToPath} from "../Utils/SidebarUtils";
+import {filterItemByChannel} from "../Utils/SidebarUtils";
 import {
     initBarSubItems,
-    onChannelDevDetail,
-    storedChannelData, storedGameData,
+    storedChannelData,
+    storedGameData,
     storedThemeData,
-    storedToolBarData
+
 } from "../Actions/SidebarActions";
 import {
-    DYNAMIC_BASE_URL,
-    DYNAMIC_CHANNEL, GAME_CHANNEL,
+    GAME_CHANNEL,
     INIT_SIDEBAR_DEVTOOL,
-    ON_CHANNEL_DEV_DETAIL,
-    STATIC_CHANNEL, THEME_CHANNEL
+    ON_CHANNEL_DEV_DETAIL, STATIC_CHANNEL,
+    THEME_CHANNEL
 } from "../Constants/SidebarConstants";
-
+import {storedToolBarData} from "../Actions/ToolbarActions";
 
 
 const sidebarManager = createLogic({
@@ -30,28 +29,31 @@ const sidebarManager = createLogic({
             const {code, result = {}} = DevtoolSettings;
             const {toolBarDetail = {}, channelList = []} = result;
             const {type = "", btnCode = "STATIC"} = action;
+
             if (code === RESPONSE_CODE_SUCCESS && toolBarDetail && channelList) {
 
-                if(type === INIT_SIDEBAR_DEVTOOL || btnCode === "STATIC" ) {
+                if (type === INIT_SIDEBAR_DEVTOOL) {
 
-                    let channelData = filterItemByChannel(channelList, btnCode);
-                    console.log("enter in INIT_SIDEBAR_DEVTOOL: ", channelData);
 
-                    dispatch(storedChannelData(channelData[0].list || [], btnCode));
+                    let channelStaticData = filterItemByChannel(channelList, "STATIC");
+                    dispatch(storedChannelData(channelStaticData[0].list || [], btnCode));
                     dispatch(storedToolBarData(toolBarDetail));
                     dispatch(initBarSubItems());
+                    let channelThemeData = filterItemByChannel(channelList, "THEME");
+                    dispatch(storedThemeData(channelThemeData, btnCode));
+                    let channelGameData = filterItemByChannel(channelList, "GAME");
+                    dispatch(storedGameData(channelGameData, btnCode));
 
-                } else {
+                } else if (type === ON_CHANNEL_DEV_DETAIL) {
+
 
                     let channelData = filterItemByChannel(channelList, btnCode || "");
-
-                    let channelStatus =  {
-                        [THEME_CHANNEL]: () => dispatch(storedThemeData(channelData, btnCode)),
+                    let channelStatus = {
+                        [STATIC_CHANNEL]: () => dispatch(storedChannelData(channelData[0].list || [], btnCode)),
+                        [THEME_CHANNEL]: () => dispatch(storedThemeData(channelData[0].list, btnCode)),
                         [GAME_CHANNEL]: () => dispatch(storedGameData(channelData, btnCode))
                     };
-
                     channelStatus[channelData[0].channel]()
-
                 }
 
             } else {

@@ -13,18 +13,15 @@ export const ItembarDevtoolComponent = ({channelData = [], viewport, toggleItem,
 };
 
 const ItemListComponent = ({channelData = [], viewport, toggleItem, toggleSubItem}) => {
-
     return channelData.map((item, index) => {
         return <div key={index}>
             <div className="btn-item" onClick={() => toggleItem(item.route)}>{item.routeTitle}</div>
-            {item.selected ? <SubItemListComponent viewport={viewport} route={item.route} subItemList={item.subItemList} toggleSubItem={toggleSubItem}/> : ""}
+            {item.selected ? <SubItemListComponent subItemList={item.subItemList} viewport={viewport} route={item.route} toggleSubItem={toggleSubItem}/> : ""}
         </div>
     });
-
 };
 
 const SubItemListComponent = ({subItemList, route, viewport, toggleSubItem}) => {
-
     return subItemList.map((subItem, index) => {
 
         return viewport === subItem.viewport || subItem.viewport === "responsive" ?

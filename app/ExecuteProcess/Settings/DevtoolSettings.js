@@ -113,11 +113,24 @@ export const DevtoolSettings = {
                 channel: "THEME",
                 list: [
                     {
-                        theme: "BLACK"
+                        routeTitle: "THEME",
+                        route: "/theme",
+                        selected: true,
+                        subItemList: [
+                            {
+                                code: 1,
+                                subItemTitle: "blue",
+                                viewport: "responsive",
+                                status: true,
+                            },
+                            {
+                                code: 2,
+                                subItemTitle: "red",
+                                viewport: "responsive",
+                                status: false,
+                            },
+                        ]
                     },
-                    {
-                        theme: "WHITE"
-                    }
                 ]
             },
             {

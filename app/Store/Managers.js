@@ -9,6 +9,7 @@ import {ViewportDevtoolManagers} from "../ExternalModules/devtool-module/Core/Lo
 import {SidebarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/SidebarDevtoolManagers";
 import {ToolbarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ToolbarDevtoolManagers";
 import {ItembarDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ItembarDevtoolManagers";
+import {ThemeDevtoolManagers} from "../ExternalModules/devtool-module/Core/Logic/ThemeDevtoolManagers";
 
 
 const managers = [
@@ -23,7 +24,8 @@ const managers = [
     ...ViewportDevtoolManagers,
     ...SidebarDevtoolManagers,
     ...ToolbarDevtoolManagers,
-    ...ItembarDevtoolManagers
+    ...ItembarDevtoolManagers,
+    ...ThemeDevtoolManagers
      //%InsertManager%
 ];
 

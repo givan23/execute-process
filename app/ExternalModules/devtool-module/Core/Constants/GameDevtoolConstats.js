@@ -1,0 +1,1 @@
+export const STORED_GAME_DATA = "STORED_GAME_DATA";

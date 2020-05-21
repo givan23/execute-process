@@ -8,6 +8,9 @@ import staticDevtoolReducers from "../ExternalModules/devtool-module/Core/Reduce
 import viewportDevtoolReducers from "../ExternalModules/devtool-module/Core/Reducers/ViewportDevtoolReducers";
 import headerStaticReducers from "../ExternalModules/common-module/Core/Reducers/HeaderStaticReducers";
 import footerStaticReducers from "../ExternalModules/common-module/Core/Reducers/FooterStaticReducers";
+import themeDevtoolReducers from "../ExternalModules/devtool-module/Core/Reducers/ThemeDevtoolReducers";
+import gameDevtoolReducers from "../ExternalModules/devtool-module/Core/Reducers/GameDevtoolReducers";
+import toolbarDevtoolReducers from "../ExternalModules/devtool-module/Core/Reducers/ToolbarDevtoolReducers";
 
 
 export default {
@@ -21,8 +24,10 @@ export default {
     //DEVTOOL
     viewportDevtoolReducers,
     sidebarDevtoolReducers,
+    toolbarDevtoolReducers,
     staticDevtoolReducers,
-
+    themeDevtoolReducers,
+    gameDevtoolReducers,
 
     //COMMON
     headerStaticReducers,

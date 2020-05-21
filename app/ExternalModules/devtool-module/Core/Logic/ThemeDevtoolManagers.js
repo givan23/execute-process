@@ -1,0 +1,48 @@
+import {createLogic} from "redux-logic";
+import "babel-polyfill";
+import {INIT_BAR_SUB_ITEMS, TOGGLE_ITEM, TOGGLE_SUB_ITEM} from "../Constants/SidebarConstants";
+import {
+    getThemeFromThemeList,
+    updateStatusDropDown,
+    updateStatusSubItem,
+    updateStatusThemeSubItem
+} from "../Utils/SidebarUtils";
+import {storedChannelThemeItem, storedTheme} from "../Actions/ThemeDevtoolActions";
+
+
+const themeDevtoolManager = createLogic({
+    type: [INIT_BAR_SUB_ITEMS, TOGGLE_ITEM, TOGGLE_SUB_ITEM],
+
+    process({action, getState}, dispatch, done) {
+
+        try {
+            const {channelThemeData = []} = getState().themeDevtoolReducers;
+            const {route = "/", code = 2} = action;
+
+            if (channelThemeData && action.type === TOGGLE_ITEM) {
+
+                //go devtool
+                const channelThemeItem = updateStatusDropDown(channelThemeData, route);
+                dispatch(storedChannelThemeItem(channelThemeItem || []));
+
+            }
+            if (channelThemeData && action.type === TOGGLE_SUB_ITEM || channelThemeData && action.type === INIT_BAR_SUB_ITEMS) {
+
+                // go devtool
+                const updatedSubItemStatus = updateStatusThemeSubItem(channelThemeData, route, code);
+                const theme = getThemeFromThemeList(updatedSubItemStatus);
+console.log("theme: ", theme);
+                dispatch(storedTheme(theme || []));
+                dispatch(storedChannelThemeItem(updatedSubItemStatus || []));
+
+            }
+
+        } catch (error) {
+            console.log("Generic error, in Init Manager", error);
+        }
+
+        done();
+    }
+});
+
+export const ThemeDevtoolManagers = [themeDevtoolManager];
