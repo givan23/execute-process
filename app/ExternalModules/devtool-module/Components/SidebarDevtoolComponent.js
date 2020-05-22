@@ -22,8 +22,8 @@ const SidebarDevtoolComponent = ({
                                      toggleCloseFullSidebar
                                  }) => {
 
-console.log(theme);
-    return <div className={"devtool "+theme}>
+
+    return <div className={"devtool " + theme}>
 
         <ButtonCloseFullComponent isCloseFull={isCloseFull} toggleCloseFullSidebar={toggleCloseFullSidebar}/>
 

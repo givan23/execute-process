@@ -44,7 +44,6 @@ const managementItemBarManager = createLogic({
 
                     //go devtool
                     let newChannelData = updateStatusDropDown(channelData, route);
-                    console.log("newChannelData: ", newChannelData);
                     dispatch(storedNewChannelData(newChannelData || []));
                 }
 
