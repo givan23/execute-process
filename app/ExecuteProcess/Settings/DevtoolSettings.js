@@ -75,7 +75,7 @@ export const DevtoolSettings = {
                             {
                                 code: 1,
                                 subItemTitle: "quoteCentral",
-                                viewport: "desktop",
+                                viewport: "responsive",
                                 status: true
                             },
                             {

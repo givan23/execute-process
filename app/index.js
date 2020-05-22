@@ -16,7 +16,9 @@ import {
     TOOL_BAR_SELECTOR
 } from "./ExternalModules/common-module/Core/Constants/SelectorConstants";
 
-
+// document.addEventListener('DOMContentLoaded', (event) => {
+//
+// });
 
 
 export const renderHeader = store => {

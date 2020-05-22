@@ -5,7 +5,8 @@ export const ButtonCloseFullComponent = ({theme, isCloseFull, toggleCloseFullSid
 
     return <div className={ isCloseFull ?
         "devtool-hide-button-box"+theme+" close-button-full"+theme :
-        "devtool-hide-button-box"+theme}
+        "devtool-hide-button-box"+theme
+    }
 
                 onClick={() => toggleCloseFullSidebar()}>
         <div className={"btn-close"+theme}>{isCloseFull ? ARROW_SX : ARROW_DX}</div>

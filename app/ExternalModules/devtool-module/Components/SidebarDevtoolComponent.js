@@ -29,9 +29,9 @@ const SidebarDevtoolComponent = ({
 
         <div className={"devtool-box"+theme}>
 
-            <div className={isCloseFull ? ("devtool-box-sidebar"+theme+" close-full-devtool"+theme) :
-                            isClose ?     ("devtool-box-sidebar"+theme+" close-devtool"+theme) :
-                                          ("devtool-box-sidebar"+theme)
+            <div className={isCloseFull ? "devtool-box-sidebar"+theme+" close-full-devtool"+theme :
+                            isClose ?     "devtool-box-sidebar"+theme+" close-devtool"+theme :
+                                          "devtool-box-sidebar"+theme
             }>
 
                 <ToolbarDevtoolComponent theme={theme} buttonList={buttonList} isClose={isClose}

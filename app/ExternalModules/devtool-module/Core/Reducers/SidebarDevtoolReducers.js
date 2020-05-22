@@ -7,11 +7,13 @@ const toggleCloseSidebar = (draft, action) => {
 
 const toggleCloseFullSidebar = (draft, action) => {
     draft.isCloseFull = !draft.isCloseFull;
+
 };
 
 const initState = {
     isClose: false,
     isCloseFull: false,
+
 };
 
 export default createReducer({

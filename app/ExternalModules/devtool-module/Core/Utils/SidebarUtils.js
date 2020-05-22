@@ -48,13 +48,9 @@ export const updateStatusSubItem = (channelData, route, code) => {
 // X THEME
 //filter for 'route' and returns an list updated of all items and sub-items of all routes.
 export const updateStatusThemeDropDown = (channelData, route) => {
-    //change all items at false status.
-    let resetItem = channelData.map(item => {
-        return {...item, selected: false};
-    });
 
     // update item status from click.
-    let updateStatusItem = resetItem.map(item => {
+    let updateStatusItem = channelData.map(item => {
         return item.route === route ? {...item, selected: !item.selected} : {...item, selected: false};
     });
 
