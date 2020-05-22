@@ -1,0 +1,35 @@
+// SIDEBAR
+
+.devtool {
+  .devtool-hide-button-box {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 74px;
+    transition: 0.5s;
+    .btn-close {
+      width: 22px;
+      height: 61px;
+      font-size: 17px;
+    }
+  }
+  // MODIFIER CLASS
+  .close-button-full {
+    width: 22px;
+  }
+
+  .devtool-box {
+    .devtool-box-sidebar {
+      display: flex;
+      height: 100%;
+      width: 330px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      background-color: @dark-grey;
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+  }
+}

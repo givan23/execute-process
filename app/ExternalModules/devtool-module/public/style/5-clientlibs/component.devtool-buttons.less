@@ -12,17 +12,23 @@
   left: 11px;
   width: 40px;
   height: 40px;
-  background-color: #242222;
-  color: #3a3f4a;
+  background-color: @black-grey;
+  color: @light-blue-grey;
   font-size: 30px;
   font-family: "Arial Black", "Gadget", "sans-serif";
   cursor: pointer;
+}
+.sidebar-tool-bar{
+  .btn-close{
+     display: flex;
+     align-items: flex-end;
+   }
 }
 
 //HOVER
 .btn-close:hover,
 .btn-item:hover {
-  background-color: #3a3f4a;
-  color: #242222;
-  border: #242222 1.5px solid;
+  background-color: @light-blue-grey;
+  color: @black-grey;
+  border: @black-grey 1.5px solid;
 }

@@ -30,7 +30,8 @@ const themeDevtoolManager = createLogic({
                 // go devtool
                 const updatedSubItemStatus = updateStatusThemeSubItem(channelThemeData, route, code);
                 const theme = getThemeFromThemeList(updatedSubItemStatus);
-                dispatch(storedTheme(theme || []));
+
+                dispatch(storedTheme(theme || ""));
                 dispatch(storedChannelThemeItem(updatedSubItemStatus || []));
 
             }

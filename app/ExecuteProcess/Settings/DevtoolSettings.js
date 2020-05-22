@@ -119,13 +119,15 @@ export const DevtoolSettings = {
                         subItemList: [
                             {
                                 code: 1,
-                                subItemTitle: "blue",
+                                subItemTitle: "classic",
+                                nameClass: "",
                                 viewport: "responsive",
                                 status: true,
                             },
                             {
                                 code: 2,
-                                subItemTitle: "red",
+                                subItemTitle: "spectre",
+                                nameClass: "-spectre",
                                 viewport: "responsive",
                                 status: false,
                             },

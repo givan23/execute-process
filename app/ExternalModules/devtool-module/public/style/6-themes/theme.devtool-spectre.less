@@ -1,25 +1,25 @@
 // SIDEBAR
 
-.devtool {
-  &-hide-button-box {
+.devtool@{theme-1} {
+  .devtool-hide-button-box@{theme-1} {
     position: fixed;
     right: 0;
     bottom: 0;
     width: 74px;
     transition: 0.5s;
-    .btn-close {
+    .btn-close@{theme-1} {
       width: 22px;
       height: 61px;
       font-size: 17px;
     }
   }
   // MODIFIER CLASS
-  .close-button-full {
+  .close-button-full@{theme-1} {
     width: 22px;
   }
 
-  &-box {
-    &-sidebar {
+  .devtool-box@{theme-1} {
+    .devtool-box-sidebar@{theme-1} {
       display: flex;
       height: 100%;
       width: 330px;
@@ -27,7 +27,7 @@
       z-index: 1;
       top: 0;
       right: 0;
-      background-color: #25282f;
+      background-color: @black;
       overflow-x: hidden;
       transition: 0.5s;
     }

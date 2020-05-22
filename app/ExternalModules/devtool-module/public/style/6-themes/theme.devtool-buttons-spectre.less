@@ -1,0 +1,37 @@
+////////////////////////////////////////////
+//
+// BUTTON TOOLS THEME
+//
+////////////////////////////////////////////
+
+.btn-close@{theme-1},
+.btn-item@{theme-1} {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 11px;
+  width: 40px;
+  height: 40px;
+  border: @light-violet 1px solid;
+  background-color: @dark-violet-light;
+  color: @white-violet;
+  font-size: 30px;
+  font-family: "Arial Black", "Gadget", "sans-serif";
+  cursor: pointer;
+}
+
+
+.sidebar-tool-bar@{theme-1} {
+  .btn-close@{theme-1} {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+//HOVER
+.btn-close@{theme-1}:hover,
+.btn-item@{theme-1}:hover {
+  background-color: @white-violet;
+  color: @light-violet;
+  border: @light-violet 1.5px solid;
+}
