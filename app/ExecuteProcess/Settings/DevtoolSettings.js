@@ -120,14 +120,12 @@ export const DevtoolSettings = {
                             {
                                 code: 1,
                                 subItemTitle: "classic",
-                                nameClass: "",
                                 viewport: "responsive",
                                 status: true,
                             },
                             {
                                 code: 2,
                                 subItemTitle: "spectre",
-                                nameClass: "-spectre",
                                 viewport: "responsive",
                                 status: false,
                             },

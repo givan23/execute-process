@@ -22,24 +22,24 @@ const SidebarDevtoolComponent = ({
                                      toggleCloseFullSidebar
                                  }) => {
 
+console.log(theme);
+    return <div className={"devtool "+theme}>
 
-    return <div className={"devtool"+theme}>
+        <ButtonCloseFullComponent isCloseFull={isCloseFull} toggleCloseFullSidebar={toggleCloseFullSidebar}/>
 
-        <ButtonCloseFullComponent theme={theme} isCloseFull={isCloseFull} toggleCloseFullSidebar={toggleCloseFullSidebar}/>
+        <div className="devtool-box">
 
-        <div className={"devtool-box"+theme}>
-
-            <div className={isCloseFull ? "devtool-box-sidebar"+theme+" close-full-devtool"+theme :
-                            isClose ?     "devtool-box-sidebar"+theme+" close-devtool"+theme :
-                                          "devtool-box-sidebar"+theme
+            <div className={isCloseFull ? "devtool-box-sidebar close-full-devtool" :
+                            isClose ?     "devtool-box-sidebar close-devtool" :
+                                          "devtool-box-sidebar"
             }>
 
-                <ToolbarDevtoolComponent theme={theme} buttonList={buttonList} isClose={isClose}
+                <ToolbarDevtoolComponent buttonList={buttonList} isClose={isClose}
                                          toggleCloseSidebar={toggleCloseSidebar}
                                          onClickTool={onClickTool}/>
 
 
-                <SwitchChannelItem theme={theme} viewport={viewport} channelData={channelData} btnCode={btnCode}
+                <SwitchChannelItem viewport={viewport} channelData={channelData} btnCode={btnCode}
                                    channelThemeData={channelThemeData} channelGameData={channelGameData}
                                    toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>
 
@@ -53,12 +53,12 @@ const SidebarDevtoolComponent = ({
 export default SidebarDevtoolComponent;
 
 
-const SwitchChannelItem = ({theme, viewport, channelData, channelThemeData, channelGameData, btnCode, toggleItem, toggleSubItem}) => {
+const SwitchChannelItem = ({viewport, channelData, channelThemeData, channelGameData, btnCode, toggleItem, toggleSubItem}) => {
 
     let channelStatus = {
-        [STATIC_CHANNEL]: <ItembarDevtoolComponent theme={theme} btnCode={btnCode} channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
-        [THEME_CHANNEL]: <ItembarDevtoolComponent theme={theme} btnCode={btnCode} channelData={channelThemeData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
-        [GAME_CHANNEL]: <GameComponent theme={theme} channelGameData={channelGameData}/>
+        [STATIC_CHANNEL]: <ItembarDevtoolComponent btnCode={btnCode} channelData={channelData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
+        [THEME_CHANNEL]: <ItembarDevtoolComponent btnCode={btnCode} channelData={channelThemeData} viewport={viewport} toggleItem={toggleItem} toggleSubItem={toggleSubItem}/>,
+        [GAME_CHANNEL]: <GameComponent channelGameData={channelGameData}/>
     };
 
     return channelStatus[btnCode];
@@ -66,6 +66,6 @@ const SwitchChannelItem = ({theme, viewport, channelData, channelThemeData, chan
 };
 
 
-const GameComponent = ({theme, channelGameData}) => {
-    return <div className={"theme"+theme}>games component</div>
+const GameComponent = ({channelGameData}) => {
+    return <div className="theme">games component</div>
 };

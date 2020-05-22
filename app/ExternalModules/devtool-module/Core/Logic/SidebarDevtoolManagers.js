@@ -40,20 +40,21 @@ const sidebarManager = createLogic({
                     dispatch(storedToolBarData(toolBarDetail));
                     dispatch(initBarSubItems());
                     let channelThemeData = filterItemByChannel(channelList, "THEME");
-                    dispatch(storedThemeData(channelThemeData, btnCode));
+                    dispatch(storedThemeData(channelThemeData[0].list, btnCode));
                     let channelGameData = filterItemByChannel(channelList, "GAME");
-                    dispatch(storedGameData(channelGameData, btnCode));
+                    dispatch(storedGameData(channelGameData[0].list, btnCode));
 
                 } else if (type === ON_CHANNEL_DEV_DETAIL) {
 
 
                     let channelData = filterItemByChannel(channelList, btnCode || "");
+
                     let channelStatus = {
                         [STATIC_CHANNEL]: () => dispatch(storedChannelData(channelData[0].list || [], btnCode)),
                         [THEME_CHANNEL]: () => dispatch(storedThemeData(channelData[0].list, btnCode)),
-                        [GAME_CHANNEL]: () => dispatch(storedGameData(channelData, btnCode))
+                        [GAME_CHANNEL]: () => dispatch(storedGameData(channelData[0].list, btnCode))
                     };
-                    channelStatus[channelData[0].channel]()
+                    channelStatus[channelData[0].channel]();
                 }
 
             } else {

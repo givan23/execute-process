@@ -104,12 +104,12 @@ export const updateStatusThemeSubItem = (channelData, route, code) => {
 // X THEME
 // find theme from theme list
 export const getThemeFromThemeList = (themeList) => {
-
+    console.log("theme: ", themeList)
     const {subItemList = []} = themeList[0] || {};
     // find the state at true and return the theme.
-    const {nameClass = ""} = subItemList.filter(theme => {
+    const {subItemTitle = ""} = subItemList.filter(theme => {
         return theme.status === true ? theme : null; })[0] || {};
-    return nameClass;
+    return subItemTitle;
 };
 
 

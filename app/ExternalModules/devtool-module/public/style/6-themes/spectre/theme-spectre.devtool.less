@@ -1,0 +1,86 @@
+///////////////////////////////////
+//
+// THEME SPECTRE
+//
+///////////////////////////////////
+
+.devtool.spectre {
+
+  .devtool-box {
+    .devtool-box-sidebar {
+      background-color: @black;
+    }
+  }
+
+  .sidebar-tool-bar {
+    background-color: @black;
+    border-right: extract( @violet, 2) 1px solid;
+    border-left: extract( @violet, 2) 1px solid;
+  }
+
+  .sidebar-item-bar {
+    color: @white;
+
+    .item-bar-title {
+      border-bottom: 1px extract( @violet, 2) solid;
+    }
+
+    .btn-item,
+    .btn-sub-item {
+      color: darkgrey;
+    }
+
+    .btn-item {
+      background-color: extract( @violet, 1);
+    }
+    .btn-sub-item {
+      background-color: extract( @violet, 3);
+    }
+
+    //MODIFY CLASS
+    .btn-status {
+      color: @white;
+      border-bottom: 1px extract( @violet, 3) solid;
+      background-color: extract( @violet, 6);
+    }
+
+    //HOVER
+    .btn-sub-item:hover {
+      color: @white;
+      border-bottom: 1px extract( @violet, 4) solid;
+      border-right: 1px extract( @violet, 4) solid;
+      background-color: extract( @violet, 5);
+    }
+
+    .btn-item:hover {
+      color: @white;
+      background-color: extract( @violet, 2);
+    }
+  }
+
+  // BUTTON TOOLS THEME
+  .btn-close,
+  .btn-item {
+    background-color: extract( @violet, 1);
+    color: extract( @violet, 3);
+  }
+
+  .btn-item {
+    border-right: 1px extract( @violet, 2) solid;
+    border-bottom: 1px extract( @violet, 2) solid;
+  }
+
+  .sidebar-tool-bar {
+    .btn-close {
+      border: extract( @violet, 2) 1px solid;
+    }
+  }
+
+  .btn-close:hover,
+  .btn-item:hover {
+    background-color: extract( @violet, 3);
+    color: extract( @violet, 2);
+    border: extract( @violet, 2) 1.5px solid;
+  }
+}
+

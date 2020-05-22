@@ -1,0 +1,80 @@
+///////////////////////////////////
+//
+// THEME CLASSIC
+//
+///////////////////////////////////
+
+.devtool.classic {
+
+  .devtool-box {
+    .devtool-box-sidebar {
+      background-color: extract( @grey, 2);
+    }
+  }
+
+  .sidebar-tool-bar {
+    background-color: extract( @grey, 3);
+    border-right: extract( @grey, 1) 1.5px solid;
+    border-left: extract( @grey, 1) 1.5px solid;
+  }
+
+  .sidebar-item-bar {
+    color: white;
+    .item-bar-title,
+    .btn-item,
+    .btn-sub-item {
+      border-bottom: extract( @grey, 1) 1.5px solid;
+    }
+
+    .btn-item,
+    .btn-sub-item {
+      color: darkgrey;
+      border-bottom: extract( @grey, 1) 1px solid;
+    }
+
+    .btn-item {
+      background-color: extract( @grey, 3);
+    }
+
+    .btn-sub-item {
+      background-color: extract( @grey, 4);
+    }
+
+
+    //MODIFY CLASS
+    .btn-status {
+      color: white;
+      background-color: extract( @grey, 6);
+    }
+
+
+    //HOVER
+    .btn-sub-item:hover {
+      color: white;
+      background-color: extract( @grey, 6);
+    }
+
+    .btn-item:hover {
+      color: white;
+      background-color: extract( @grey, 1);
+    }
+  }
+
+  //BUTTON TOOLS
+  .btn-close,
+  .btn-item {
+    background-color: extract( @grey, 1);
+    color: extract( @grey, 5);
+  }
+
+  //HOVER
+  .btn-close:hover,
+  .btn-item:hover {
+    background-color: extract( @grey, 5);
+    color: extract( @grey, 1);
+    border: extract( @grey, 1) 1.5px solid;
+  }
+}
+
+
+

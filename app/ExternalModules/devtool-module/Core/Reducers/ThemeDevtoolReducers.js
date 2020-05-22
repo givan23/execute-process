@@ -3,6 +3,7 @@ import createReducer from "../../../../Utils/CreateReducerUtils"
 
 const storedThemeData = (draft, action) => {
     draft.channelThemeData = action.result;
+    console.log("action.result: ", action.result)
 };
 
 const storedChannelThemeItem = (draft, action) => {
