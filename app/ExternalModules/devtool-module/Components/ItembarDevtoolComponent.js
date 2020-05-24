@@ -17,17 +17,17 @@ const ItemListComponent = ({channelData = [], viewport, toggleItem, toggleSubIte
     return channelData.map((item, index) => {
         return <div key={index}>
             <div className="btn-item" onClick={() => toggleItem(item.route)}>{item.routeTitle}</div>
-            {item.selected ? <SubItemListComponent subItemList={item.subItemList} viewport={viewport} route={item.route}
-                                                   toggleSubItem={toggleSubItem}/> : ""}
+            <SubItemListComponent selected={item.selected} subItemList={item.subItemList} viewport={viewport} route={item.route}
+                                                   toggleSubItem={toggleSubItem}/>
         </div>
     });
 };
 
-const SubItemListComponent = ({subItemList, route, viewport, toggleSubItem}) => {
+const SubItemListComponent = ({selected, subItemList, route, viewport, toggleSubItem}) => {
     return subItemList.map((subItem, index) => {
 
         return viewport === subItem.viewport || subItem.viewport === "responsive" ?
-            <div key={index} className={subItem.status ? "btn-sub-item btn-status" : "btn-sub-item"}
+            <div key={index} className={!selected ? "btn-sub-item slide-out" : subItem.status ? "btn-sub-item btn-status" : "btn-sub-item"}
                  onClick={() => toggleSubItem(route, subItem.code)}>{subItem.subItemTitle}</div>
             : ""
     });
