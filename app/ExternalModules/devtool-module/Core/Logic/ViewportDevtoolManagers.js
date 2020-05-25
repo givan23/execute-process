@@ -3,6 +3,7 @@ import "babel-polyfill";
 import {storedViewportData} from "../Actions/ViewportActions";
 import {INIT_VIEWPORT_DEVTOOL} from "../Constants/ViewportConstants";
 import {giveViewport} from "../Utils/ViewportUtils";
+import {GENERIC_ERROR, ERROR_VIEWPORT} from "../Constants/ErrorsConstants";
 
 
 const viewportManager = createLogic({
@@ -21,11 +22,11 @@ const viewportManager = createLogic({
                 dispatch(storedViewportData(viewport));
 
             } else {
-                console.log("resize a ZERO!");
+                console.warn(ERROR_VIEWPORT);
             }
 
         } catch (error) {
-            console.log("Generic error on Resize Manager!", error);
+            console.warn(GENERIC_ERROR, error);
         }
 
         done();

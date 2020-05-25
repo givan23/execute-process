@@ -2,6 +2,7 @@ import {createLogic} from "redux-logic";
 import "babel-polyfill";
 import {initBarSubItems, initSidebarDevtool} from "../Actions/SidebarActions";
 import {INIT_DEVTOOL} from "../Constants/InitDevtoolConstants";
+import {GENERIC_ERROR} from "../Constants/ErrorsConstants";
 
 
 const initManager = createLogic({
@@ -15,7 +16,7 @@ const initManager = createLogic({
             dispatch(initBarSubItems());
 
         } catch (error) {
-            console.log("Generic error, in Init Manager", error);
+            console.warn(GENERIC_ERROR, error);
         }
 
         done();

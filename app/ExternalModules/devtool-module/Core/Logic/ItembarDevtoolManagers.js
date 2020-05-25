@@ -21,6 +21,7 @@ import {
     storedSubItemFooterData,
     storedSubItemHeaderData
 } from "../Actions/SidebarActions";
+import {GENERIC_ERROR} from "../Constants/ErrorsConstants";
 
 
 
@@ -73,7 +74,7 @@ const managementItemBarManager = createLogic({
             } else return console.log("eccomi!")
 
         } catch (error) {
-            console.log("generic exception in ManagementBarManages ", error);
+            console.warn(GENERIC_ERROR, error);
         }
 
         done();

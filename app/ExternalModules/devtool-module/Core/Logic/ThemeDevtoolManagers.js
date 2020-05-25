@@ -7,6 +7,7 @@ import {
     updateStatusThemeSubItem
 } from "../Utils/SidebarUtils";
 import {storedChannelThemeItem, storedTheme} from "../Actions/ThemeDevtoolActions";
+import {GENERIC_ERROR} from "../Constants/ErrorsConstants";
 
 
 const themeDevtoolManager = createLogic({
@@ -37,7 +38,7 @@ const themeDevtoolManager = createLogic({
             }
 
         } catch (error) {
-            console.log("Generic error, in Init Manager", error);
+            console.warn(GENERIC_ERROR, error);
         }
 
         done();

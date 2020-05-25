@@ -9,6 +9,7 @@ import {
 } from "../Constants/SidebarConstants";
 import {goToPath} from "../Utils/SidebarUtils";
 import {onChannelDevDetail} from "../Actions/ToolbarActions";
+import {GENERIC_ERROR} from "../Constants/ErrorsConstants";
 
 
 
@@ -31,7 +32,7 @@ const toolbarDevtoolManager = createLogic({
 
 
         } catch (error) {
-            console.log("generic exception in ManagementBarManages ", error);
+            console.warn(GENERIC_ERROR, error);
         }
         done();
     }

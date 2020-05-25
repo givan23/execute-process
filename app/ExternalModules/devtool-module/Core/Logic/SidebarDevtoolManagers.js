@@ -17,6 +17,7 @@ import {
     THEME_CHANNEL
 } from "../Constants/SidebarConstants";
 import {storedToolBarData} from "../Actions/ToolbarActions";
+import {ERROR_DATA, GENERIC_ERROR} from "../Constants/ErrorsConstants";
 
 
 const sidebarManager = createLogic({
@@ -58,11 +59,11 @@ const sidebarManager = createLogic({
                 }
 
             } else {
-                console.log("inconsistent data!");
+                console.warn(ERROR_DATA);
             }
 
         } catch (error) {
-            console.log(NETWORK_CALL_ERROR, error);
+            console.warn(GENERIC_ERROR, error);
         }
 
         done();
