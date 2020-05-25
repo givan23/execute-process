@@ -11,13 +11,14 @@ const mapStateToProps = createSelector(
     [getStaticData, getViewport],
     (staticData, viewport) => {
 
-        const [quoteCentral = {}, sportList = {}, sportListMobile = {}] = staticData.subItemList || [];
+
+        const {subItemList = []} = staticData;
+        const NODE_TYPE = "ui-it";
 
         return {
+            subItemList,
             viewport,
-            quoteCentral,
-            sportList,
-            sportListMobile
+            NODE_TYPE
         };
     });
 

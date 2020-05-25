@@ -5,7 +5,7 @@ const boxLanguage =
 </div>
 `;
 
-export const landingCentral =
+export const staticLandingCentral =
     `
 <div class="prova" style="width: 80%; height: 500px; float: right; background-color:red;">
     ${boxLanguage}

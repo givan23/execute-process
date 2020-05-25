@@ -1,8 +1,8 @@
 import React from "react";
 import parser from "react-html-parser";
-import {landingCentral} from "./snippet/landing/landing-central.js";
-import sportList from "./snippet/sport-list/sport-list.html";
-import sportListMobile from "./snippet/sport-list/sport-list-mobile.html";
+import {staticLandingCentral} from "./snippet/landing/static.landing-central.js";
+import staticSportList from "./snippet/sport-list/static.sport-list.html";
+import staticSportListMobile from "./snippet/sport-list/static.sport-list-mobile.html";
 import {isShow} from "../Utils/layoutUtils";
 
 class LandingStaticComponent extends React.Component {
@@ -12,14 +12,40 @@ class LandingStaticComponent extends React.Component {
 
     render() {
 
-        const p = this.props;
+        const {NODE_TYPE = "", subItemList = [], viewport = ""} = this.props;
 
         return <div>
-            {isShow(p.landingCentral,p.viewport) ? parser(landingCentral) : null}
-            {isShow(p.sportList,p.viewport) ? parser(sportList) : null}
-            {isShow(p.sportListMobile,p.viewport) ? parser(sportListMobile) : null}
-        </div>
+                    {
+                        NODE_TYPE === "ui-it" ?
+                        <LandingItComponent subItemList={subItemList} viewport={viewport}/> :
+                        <LandingBeComponent subItemList={subItemList} viewport={viewport}/>
+                    }
+               </div>
+
     }
 }
 
 export default LandingStaticComponent;
+
+const LandingItComponent = ({subItemList, viewport}) => {
+
+    const [landingCentral = {}, sportList = {}, sportListMobile = {}] = subItemList || [];
+
+    return <div>
+        {isShow(landingCentral, viewport) ? parser(staticLandingCentral) : null}
+        {isShow(sportList, viewport) ? parser(staticSportList) : null}
+        {isShow(sportListMobile, viewport) ? parser(staticSportListMobile) : null}
+    </div>
+};
+
+
+const LandingBeComponent = ({subItemList, viewport}) => {
+
+    const [landingCentral = {}, sportList = {}, sportListMobile = {}] = subItemList || [];
+
+    return <div>
+        {isShow(landingCentral, viewport) ? parser(staticLandingCentral) : null}
+        {isShow(sportList, viewport) ? parser(staticSportList) : null}
+        {isShow(sportListMobile, viewport) ? parser(staticSportListMobile) : null}
+    </div>
+};

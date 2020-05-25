@@ -1,8 +1,8 @@
 import parser from "react-html-parser";
-import quoteCentral from "./snippet/quote/quote-central.html";
-import sportList from "./snippet/sport-list/sport-list.html";
 import {isShow} from "../Utils/layoutUtils";
-import sportListMobile from "./snippet/sport-list/sport-list-mobile.html";
+import staticQuoteCentral from "./snippet/quote/static.quote-central.html";
+import staticSportList from "./snippet/sport-list/static.sport-list.html";
+import staticSportListMobile from "./snippet/sport-list/static.sport-list-mobile.html";
 import React from "react";
 
 
@@ -14,15 +14,41 @@ class QuoteStaticComponent extends React.Component {
 
     render() {
 
-        const p = this.props;
+        const {NODE_TYPE = "", subItemList = [], viewport = ""} = this.props;
 
-        return <div className="container-layout">
 
-            {isShow(p.sportList,p.viewport) ? parser(sportList) : null}
-            {isShow(p.sportListMobile,p.viewport) ? parser(sportListMobile) : null}
-            {isShow(p.quoteCentral,p.viewport) ? parser(quoteCentral) : null}
-        </div>
+        return <div>
+                    {
+                        NODE_TYPE === "ui-it" ?
+                            <QuoteItComponent subItemList={subItemList} viewport={viewport}/> :
+                            <QuoteBeComponent subItemList={subItemList} viewport={viewport}/>
+                    }
+               </div>
     }
 }
 
 export default QuoteStaticComponent;
+
+const QuoteItComponent = ({subItemList, viewport}) => {
+
+    const [quoteCentral = {}, sportList = {}, sportListMobile = {}] = subItemList || [];
+
+    return <div className="container-layout">
+        {isShow(sportList, viewport) ? parser(staticSportList) : null}
+        {isShow(sportListMobile, viewport) ? parser(staticSportListMobile) : null}
+        {isShow(quoteCentral, viewport) ? parser(staticQuoteCentral) : null}
+    </div>
+};
+
+const QuoteBeComponent = ({subItemList, viewport}) => {
+
+    const [quoteCentral = {}, sportList = {}, sportListMobile = {}] = subItemList || [];
+
+    return <div className="container-layout">
+        {isShow(sportList, viewport) ? parser(staticSportList) : null}
+        {isShow(sportListMobile, viewport) ? parser(staticSportListMobile) : null}
+        {isShow(quoteCentral, viewport) ? parser(staticQuoteCentral) : null}
+    </div>
+};
+
+

@@ -10,11 +10,15 @@ const getViewport = (state) => state.viewportDevtoolReducers.viewport;
 const mapStateToProps = createSelector (
     [getStaticDataHeader, getViewport],
     (staticData, viewport) => {
-        const [header = {}] = staticData.subItemList || [];
+
+        const {subItemList = []} = staticData;
+        //todo gestire NODE_TYPE
+        const NODE_TYPE = "ui-it";
 
         return {
+            subItemList,
             viewport,
-            header
+            NODE_TYPE
 
         };
     });
